@@ -1,33 +1,31 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 @Injectable()
 export class UserService {
   private basePath = '/userProfile';
-  users: FirebaseListObservable<any[]> = null;
+  users: AngularFireList<any> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getUserList(): FirebaseListObservable<any[]> {
+  getUserList(): AngularFireList<any> {
     this.users = this.db.list(this.basePath);
     return this.users;
   }
 
-  getUserQuery(offset, startKey?): FirebaseListObservable<any[]> {
-    this.users = this.db.list(this.basePath, {
-      query: {
-        orderByKey: true,
-        startAt: startKey,
-        limitToFirst: offset + 1
-      }
-    });
+  getUserQuery(offset, startKey?): AngularFireList<any> {
+    if (startKey) {
+      this.users = this.db.list(this.basePath, ref => ref.orderByKey().startAt(startKey).limitToFirst(offset + 1));
+    } else {
+      this.users = this.db.list(this.basePath, ref => ref.orderByKey().limitToFirst(offset + 1));
+    }
     return this.users;
   }
 
   isAdmin(key: string) {
     let isAdmin: boolean;
-    this.db.object(`/admins/${key}`).subscribe(snapshot => {
-      isAdmin = snapshot.$value;
+    this.db.object(`/admins/${key}`).snapshotChanges().subscribe(snapshot => {
+      isAdmin = snapshot.payload.val() as boolean;
     });
     return isAdmin;
   }

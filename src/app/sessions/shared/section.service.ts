@@ -1,16 +1,16 @@
 import { Section } from './section';
 import { Injectable } from '@angular/core';
 import { firebaseConfig } from './../../../environments/firebase.config';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
+import { AngularFireDatabase, AngularFireList, QueryFn } from '@angular/fire/database';
 
 @Injectable()
 export class SectionService {
-  sections: FirebaseListObservable<Section[]> = null;
+  sections: AngularFireList<Section> = null;
 
   constructor(private db: AngularFireDatabase) { }
 
-  getSectionList(query?: object, year?: string|number): FirebaseListObservable<Section[]> {
-    this.sections = this.listPath({ query: query }, year);
+  getSectionList(queryFn?: QueryFn, year?: string|number): AngularFireList<Section> {
+    this.sections = this.listPath(queryFn, year);
     return this.sections;
   }
 
@@ -24,13 +24,11 @@ export class SectionService {
     list.remove(key);
   }
 
-  private listPath(query?: object, year?: string|number) {
+  private listPath(queryFn?: QueryFn, year?: string|number): AngularFireList<Section> {
     if (!year) {
         year = firebaseConfig.devfestYear;
     }
-    return this.db.list(`${year}/sections`, {
-      query: query
-    });
+    return this.db.list(`${year}/sections`, queryFn);
   }
 
 }

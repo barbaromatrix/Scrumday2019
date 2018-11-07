@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase } from '@angular/fire/database';
 import * as firebase from 'firebase/app';
 
 @Injectable()
@@ -40,8 +40,8 @@ export class AuthService {
 
   isAdmin() {
     let isAdmin: boolean;
-    this.afDatabase.object(`/admins/${this.userId}`).subscribe(snapshot => {
-      isAdmin = snapshot.$value;
+    this.afDatabase.object(`/admins/${this.userId}`).snapshotChanges().subscribe(snapshot => {
+      isAdmin = snapshot.payload.val() as boolean;
     });
     return isAdmin;
   }
