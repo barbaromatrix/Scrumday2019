@@ -1,9 +1,9 @@
 import { SiteConfigService } from './admin/shared/site-config/site-config.service';
-import { AngularFireObject } from '@angular/fire/database';
 import { SiteConfig } from './admin/shared/site-config/site-config';
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs/Rx';
 
 import { mergeMap, map, filter } from 'rxjs/operators';
 
@@ -14,7 +14,7 @@ import { mergeMap, map, filter } from 'rxjs/operators';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  siteConfig: AngularFireObject<SiteConfig>;
+  siteConfig$: Observable<SiteConfig>;
   eventName: string;
 
   constructor(
@@ -25,10 +25,10 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
+    this.siteConfig$ = this.siteConfigService.getConfig$();
 
-    this.siteConfig.snapshotChanges().subscribe(snap => {
-      this.eventName = snap.payload.val().eventName;
+    this.siteConfig$.subscribe(siteConfig => {
+      this.eventName = siteConfig.eventName;
     });
 
     this.router.events.pipe(

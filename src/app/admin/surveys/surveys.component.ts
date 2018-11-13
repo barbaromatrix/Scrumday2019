@@ -1,10 +1,10 @@
-import { AngularFireList } from '@angular/fire/database';
 import { SessionService } from './../../sessions/shared/session.service';
 import { Session } from './../../sessions/shared/session';
 import { Survey } from './../../sessions/shared/survey';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
 import { DatePipe } from '@angular/common';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-surveys',
@@ -13,7 +13,7 @@ import { DatePipe } from '@angular/common';
   providers: [ModalDirective, DatePipe]
 })
 export class SurveysComponent implements OnInit {
-  public sessions: AngularFireList<Session>;
+  public sessions$: Observable<Session[]>;
   public surveyDetail: any;
   surveyData: any[] = [];
 
@@ -22,7 +22,7 @@ export class SurveysComponent implements OnInit {
   constructor(private sessionService: SessionService) { }
 
   ngOnInit() {
-    this.sessions = this.sessionService.getSessionList();
+    this.sessions$ = this.sessionService.getSessionList$();
   }
 
   showModal(session, survey) {
@@ -102,7 +102,7 @@ export class SurveysComponent implements OnInit {
   downloadCSV(args) {
     let data, filename, link;
     let csv = this.convertDataToCSV({
-        data: this.sessions
+        data: this.sessions$
     });
 
     if (csv == null) {

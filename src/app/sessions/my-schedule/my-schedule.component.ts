@@ -6,8 +6,8 @@ import { SectionService } from './../shared/section.service';
 import { SessionService } from './../shared/session.service';
 import { Session } from './../shared/session';
 import { Section } from './../shared/section';
-import { AngularFireList } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-my-schedule',
@@ -15,9 +15,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-schedule.component.scss']
 })
 export class MyScheduleComponent implements OnInit {
-  public sessions$: AngularFireList<Session>;
-  public sections$: AngularFireList<Section>;
-  public mySessions$: AngularFireList<any>;
+  public sessions$: Observable<Session[]>;
+  public sections$: Observable<Section[]>;
+  public mySessions$: Observable<any[]>;
 
   constructor(
     private sessionService: SessionService,
@@ -29,9 +29,9 @@ export class MyScheduleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessions$ = this.sessionService.getSessionList();
-    this.sections$ = this.sectionService.getSectionList();
-    this.mySessions$ = this.scheduleService.getScheduleList(this.authService.userId);
+    this.sessions$ = this.sessionService.getSessionList$();
+    this.sections$ = this.sectionService.getSectionList$();
+    this.mySessions$ = this.scheduleService.getScheduleList$(this.authService.userId);
   }
 
   openDetails(session) {

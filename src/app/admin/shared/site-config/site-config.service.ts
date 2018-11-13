@@ -3,6 +3,7 @@ import { SiteConfig } from './site-config';
 import { AngularFireObject, AngularFireDatabase } from '@angular/fire/database';
 import { firebaseConfig } from './../../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 
@@ -16,9 +17,15 @@ export class SiteConfigService {
     this.firebaseStorage = firebase.storage();
   }
 
-  getConfig(): AngularFireObject<SiteConfig> {
-    this.siteConfig = this.db.object(this.basePath);
+  getConfigCore(): AngularFireObject<SiteConfig> {
+    if (!this.siteConfig) {
+      this.siteConfig = this.db.object(this.basePath);
+    }
     return this.siteConfig;
+  }
+
+  getConfig$(): Observable<SiteConfig> {
+    return this.getConfigCore().valueChanges();
   }
 
   createConfig(siteConfig: SiteConfig, file?: File): void {

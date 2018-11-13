@@ -2,6 +2,7 @@ import { Sponsor } from './sponsor';
 import { AngularFireList, AngularFireDatabase, AngularFireObject, QueryFn } from '@angular/fire/database';
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 
@@ -16,9 +17,13 @@ export class SponsorService {
     this.firebaseStorage = firebase.storage();
   }
 
-  getSponsorList(queryFn?: QueryFn): AngularFireList<Sponsor> {
+  getSponsorListCore(queryFn?: QueryFn): AngularFireList<Sponsor> {
     this.sponsors = this.db.list(this.basePath, queryFn);
     return this.sponsors;
+  }
+
+  getSponsorList$(queryFn?: QueryFn): Observable<Sponsor[]> {
+    return this.getSponsorListCore(queryFn).valueChanges();
   }
 
   getSponsor(key: string): AngularFireObject<Sponsor> {

@@ -9,6 +9,7 @@ import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Session } from '../../sessions/shared/session';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-session-detail',
@@ -18,7 +19,7 @@ import { Session } from '../../sessions/shared/session';
 export class SessionDetailComponent implements OnInit {
   session: Session = new Session();
   profiles: any[];
-  siteConfig: AngularFireObject<SiteConfig>;
+  siteConfig$: Observable<SiteConfig>;
   eventName: string;
   mySchedule: AngularFireObject<any>;
 
@@ -34,15 +35,15 @@ export class SessionDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
+    this.siteConfig$ = this.siteConfigService.getConfig$();
 
-    this.siteConfig.snapshotChanges().subscribe(snap => {
-      this.eventName = snap.payload.val().eventName;
+    this.siteConfig$.subscribe(siteConfig => {
+      this.eventName = siteConfig.eventName;
     });
 
     this.activatedRouter.params.subscribe((params) => {
       const id = params['id'];
-      this.sessionService.getSession(id).valueChanges().subscribe(session => {
+      this.sessionService.getSession$(id).subscribe(session => {
         this.session = session;
         this.getSpeakerDetails(session.speakers);
         // dynamically set page titles
@@ -63,7 +64,7 @@ export class SessionDetailComponent implements OnInit {
     const profiles = [];
     if (speakers) {
       for (const speaker of speakers) {
-        profiles.push(this.speakerService.getSpeaker(speaker));
+        profiles.push(this.speakerService.getSpeaker$(speaker));
       }
     }
     this.profiles = profiles;

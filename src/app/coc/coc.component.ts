@@ -1,7 +1,7 @@
 import { SiteConfigService } from './../admin/shared/site-config/site-config.service';
 import { SiteConfig } from './../admin/shared/site-config/site-config';
-import { AngularFireObject } from '@angular/fire/database';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-coc',
@@ -9,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coc.component.scss']
 })
 export class CocComponent implements OnInit {
-  siteConfig: AngularFireObject<SiteConfig>;
+  siteConfig$: Observable<SiteConfig>;
 
   constructor(
     private siteConfigService: SiteConfigService
   ) { }
 
   ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
+    this.siteConfig$ = this.siteConfigService.getConfig$();
   }
 
 }

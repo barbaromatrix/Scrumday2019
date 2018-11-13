@@ -8,12 +8,12 @@ export class ScheduleService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getScheduleList(uid: string, year?: string|number) {
+  getScheduleList$(uid: string, year?: string|number) {
     if (!year) {
         year = firebaseConfig.devfestYear;
     }
     const path = `${year}/schedules/${uid}/`;
-    return this.db.list(path);
+    return this.db.list(path).valueChanges();
   }
 
   getScheduleSession(uid, session, year?: string|number) {

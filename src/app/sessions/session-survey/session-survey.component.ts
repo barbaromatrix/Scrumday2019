@@ -1,4 +1,3 @@
-import { AngularFireObject } from '@angular/fire/database';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { SiteConfigService } from './../../admin/shared/site-config/site-config.service';
 import { Title } from '@angular/platform-browser';
@@ -10,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Speaker } from '../../speakers/shared/speaker';
 import { Session } from '../../sessions/shared/session';
 import { Survey } from './../shared/survey';
+import { Observable } from 'rxjs/Rx';
 
 @Component({
   selector: 'app-session-survey',
@@ -19,7 +19,7 @@ import { Survey } from './../shared/survey';
 export class SessionSurveyComponent implements OnInit {
   session: Session = new Session();
   speaker: Speaker;
-  siteConfig: AngularFireObject<SiteConfig>;
+  siteConfig$: Observable<SiteConfig>;
   eventName: string;
   survey: Survey = new Survey();
 
@@ -34,15 +34,15 @@ export class SessionSurveyComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.siteConfig = this.siteConfigService.getConfig();
+    this.siteConfig$ = this.siteConfigService.getConfig$();
 
-    this.siteConfig.snapshotChanges().subscribe(snap => {
-      this.eventName = snap.payload.val().eventName;
+    this.siteConfig$.subscribe(siteConfig => {
+      this.eventName = siteConfig.eventName;
     });
 
     this.activatedRouter.params.subscribe((params) => {
       const id = params['id'];
-      this.sessionService.getSession(id).valueChanges().subscribe(session => {
+      this.sessionService.getSession$(id).subscribe(session => {
         this.session = session;
         // dynamically set page titles
         let pageTitle = this.title.getTitle();
