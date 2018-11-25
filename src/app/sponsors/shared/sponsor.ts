@@ -9,3 +9,14 @@ export class Sponsor {
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
   active: boolean = true;
 }
+
+/*
+{
+  "$key": "1",
+  "name": "Concrete",
+  "websiteLink": "www.concrete.com.br",
+  "logoURL": "/",
+  "level": "gold",
+  "active": true,
+}
+*/

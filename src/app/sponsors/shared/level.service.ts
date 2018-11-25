@@ -17,7 +17,7 @@ export class LevelService {
   }
 
   getLevelList$(queryFn?: QueryFn): Observable<Level[]> {
-    return this.getLevelListCore().valueChanges();
+    return this.getLevelListCore(queryFn).valueChanges();
   }
 
   createLevel(level: Level): void {

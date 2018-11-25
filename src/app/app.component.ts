@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.siteConfig$ = this.siteConfigService.getConfig$();
-
     this.siteConfig$.subscribe(siteConfig => {
       this.eventName = siteConfig.eventName;
     });

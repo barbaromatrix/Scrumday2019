@@ -18,7 +18,7 @@ export class TicketService {
   }
 
   getTicketList$(queryFn?: QueryFn): Observable<Ticket[]> {
-    return this.getTicketListCore().valueChanges();
+    return this.getTicketListCore(queryFn).valueChanges();
   }
 
   getTicket(key: string): AngularFireObject<Ticket> {

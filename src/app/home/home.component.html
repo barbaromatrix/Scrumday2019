@@ -33,7 +33,7 @@
   <!--Section: About-->
   <section class="text-center" *ngIf="!config?.eventType || config?.eventType === 'DevFest'">
     <p>
-      <strong>GDG DevFests</strong> are large, community-run developer events happening around the globe focused on community
+      <strong>{{ config?.eventName }}</strong> are large, community-run developer events happening around the globe focused on community
       building and learning about Google’s technologies. Each DevFest is carefully crafted for you by your local GDG community
       to bring in awesome speakers, great topics, and lots fun! While no two events will be exactly alike, each GDG DevFest will,
       at its core, be powered by a shared belief that when developers come together to exchange ideas,
@@ -80,7 +80,7 @@
   </div>
 
   <!--Section: Featured Speakers-->
-  <section class="section team-section" *ngIf="(speakers$ | async)?.length > 0 && speakers$ | async as speakers">
+  <section class="section team-section">
     <div class="row text-center">
       <div *ngFor="let speaker of (speakers$ | async)" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; margin: 0 auto;">
         <div class="avatar" title="{{ speaker.name }}" alt="{{ speaker.name }}">
@@ -174,9 +174,9 @@
   </div>
 
   <!--Section: Pricing-->
-  <section class="section" *ngIf="(tickets$ | async)?.length > 0 && tickets$ | async as tickets">
+  <section class="section">
     <div class="row pt-3">
-      <div class="mb-r" *ngFor="let ticket of (tickets$ | async); let i = index;" [ngClass]="tickets.length > 3 ? 'col-lg-3' : 'col-lg-4'" style="padding: 20px 40px; margin: 0 auto;">
+      <div class="mb-r" *ngFor="let ticket of (tickets$ | async); let i = index;" [ngClass]="tickets$.length > 3 ? 'col-lg-3' : 'col-lg-4'" style="padding: 20px 40px; margin: 0 auto;">
         <div class="card" *ngIf="ticket.active">
           <div class="card-header white-text text-center" [ngClass]="styles[i]">
             <h1 class="dollar">{{ ticket.price }}</h1>
@@ -231,7 +231,7 @@
   </div>
 
   <!--Section: Sponsors-->
-  <section class="section" *ngIf="(sponsors$ | async)?.length > 0 && sponsors$ | async as sponsors">
+  <section class="section">
     <div class="col sponsors">
       <h4>We partner with some of the<br/>world's most innovative brands.</h4>
       <a *ngIf="config?.sponsorURL" class="btn btn-primary waves-light" [href]="config?.sponsorURL" target="_blank" rel="noopener">Become a Sponsor</a>

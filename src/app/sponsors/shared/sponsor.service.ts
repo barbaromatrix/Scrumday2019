@@ -3,6 +3,7 @@ import { AngularFireList, AngularFireDatabase, AngularFireObject, QueryFn } from
 import { firebaseConfig } from './../../../environments/firebase.config';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { map } from 'rxjs/operators';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
 
@@ -23,7 +24,15 @@ export class SponsorService {
   }
 
   getSponsorList$(queryFn?: QueryFn): Observable<Sponsor[]> {
-    return this.getSponsorListCore(queryFn).valueChanges();
+    return this.getSponsorListCore(queryFn).snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(sponsor => {
+          const data = sponsor.payload.val() as Sponsor;
+          data.$key = sponsor.payload.key;
+          return data;
+        });
+      })
+    );
   }
 
   getSponsor(key: string): AngularFireObject<Sponsor> {

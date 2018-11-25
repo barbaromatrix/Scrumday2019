@@ -76,7 +76,7 @@ export class SiteConfigService {
         githubLink: siteConfig.githubLink ? siteConfig.githubLink : null,
 
         eventType: siteConfig.eventType ? siteConfig.eventType : 'DevFest',
-        eventName: siteConfig.eventName,
+        eventName: siteConfig.eventName ? siteConfig.eventName : 'nome do evento',
         eventDescription: siteConfig.eventDescription ? siteConfig.eventDescription : null,
         eventDate: siteConfig.eventDate,
         eventEmail: siteConfig.eventEmail,
