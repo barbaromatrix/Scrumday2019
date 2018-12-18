@@ -27,38 +27,18 @@
 
 <div class="container" *ngIf="siteConfig$ | async as config">
   <div id="about" class="divider-new pt-5">
-    <h2 class="h2-responsive">About</h2>
+    <h2 class="h2-responsive">Sobre</h2>
   </div>
 
   <!--Section: About-->
   <section class="text-center" *ngIf="!config?.eventType || config?.eventType === 'DevFest'">
     <p>
-      <strong>{{ config?.eventName }}</strong> are large, community-run developer events happening around the globe focused on community
-      building and learning about Google’s technologies. Each DevFest is carefully crafted for you by your local GDG community
-      to bring in awesome speakers, great topics, and lots fun! While no two events will be exactly alike, each GDG DevFest will,
-      at its core, be powered by a shared belief that when developers come together to exchange ideas,
-      amazing&nbsp;things&nbsp;can&nbsp;happen!
+      <strong>{{ config?.groupName }}</strong>  um evento de Agilidade dirigido exclusivamente pela comunidade global de especialistas da <a href="https://www.scrum.org/">Scrum.org</a>, com a intenção de difundir nossa metodologia.
     </p>
     <p>
-      <strong>{{ config?.eventName }}</strong> is a 100% community organized full-day developer conference featuring awesome
-      world-class speakers from technology leaders within the community as well as Google product team&nbsp;developers.
+      Reuniremos <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>, <i>Agile Coaches</i>, <i>Project Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i> que proporcionarão uma grande oportunidade para você realizar networking com outros praticantes de Agilidade e Professional Scrum Trainers (PST´s) através de
+        <strong>Conversas individuais</strong>, <strong>Sessões Scrum Talks</strong>, <strong>Workshops mão na massa</strong>, <strong>Palestras inspiradoras</strong>.
     </p>
-  </section>
-  <section class="text-center" *ngIf="config?.eventType === 'IWD'">
-    <p>
-      <strong>International Women's Day</strong> (IWD) is marked on March 8th every year. In different regions around the globe,
-      the focus of celebrations ranges from general respect and appreciation for women to a celebration of women's economic,
-      political, and social achievements. Each IWD will be tailored to local communities of women in technology. Summits and meetups
-      around the world may feature hands-on coding workshops, inspiring speakers, and networking opportunities.
-    </p>
-    <p>
-      <strong>{{ config?.eventName }}</strong> is a 100% community organized event that aims to provide visibility, community, and resources
-      for women in technology. Our event is designed to promote an environment of inclusivity for women in tech, as well as celebrate
-      women innovators and leaders in the industry.
-    </p>
-  </section>
-  <section class="text-center" *ngIf="config?.eventType === 'Other'">
-    <p [innerHTML]="config?.eventDescription"></p>
   </section>
   <section class="text-center" *ngIf="config?.eventGoogle || config?.eventFacebook || config?.eventTwitter || config?.eventInstagram">
     <!--Social buttons-->
@@ -76,7 +56,7 @@
   <!--Section: About-->
 
   <div class="divider-new pt-5" *ngIf="(speakers$ | async)?.length > 0">
-    <h2 class="h2-responsive">Featured Speakers</h2>
+    <h2 class="h2-responsive">Keynotes e Palestrantes</h2>
   </div>
 
   <!--Section: Featured Speakers-->
@@ -116,7 +96,7 @@
   <!--/Section: The Venue-->
 
   <div class="divider-new" *ngIf="config?.venueGeoData">
-    <h2 class="h2-responsive">Location</h2>
+    <h2 class="h2-responsive">Localização</h2>
   </div>
 
   <!--Section: Location-->
@@ -154,7 +134,7 @@
   <!--Section: Location-->
 
   <div class="divider-new pt-5">
-    <h2 class="h2-responsive">Code of Conduct</h2>
+    <h2 class="h2-responsive">Código de Conduta</h2>
   </div>
 
   <!--Section: CoC-->
@@ -227,7 +207,7 @@
   <!--/Section: Pricing-->
 
   <div class="divider-new pt-5" *ngIf="(sponsors$ | async)?.length > 0">
-    <h2 class="h2-responsive">Sponsors</h2>
+    <h2 class="h2-responsive">Organizadores</h2>
   </div>
 
   <!--Section: Sponsors-->

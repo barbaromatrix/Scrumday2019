@@ -11,9 +11,10 @@ import { SessionService } from './sessions/shared/session.service';
 import { AuthGuard } from './services/auth/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import localePtBr from '@angular/common/locales/pt';
 import { RouterModule } from '@angular/router';
 
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -54,6 +55,9 @@ import { SessionSurveyComponent } from './sessions/session-survey/session-survey
 import { SurveysComponent } from './admin/surveys/surveys.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { CocComponent } from './coc/coc.component';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePtBr)
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],
@@ -111,8 +115,9 @@ import { CocComponent } from './coc/coc.component';
     GeocoderApiService,
     TicketService,
     ScheduleService,
-    AppCustomPreloader
+    AppCustomPreloader,
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

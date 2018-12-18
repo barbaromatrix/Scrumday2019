@@ -24,7 +24,7 @@ export class SpeakerService {
   }
 
   getSpeakerList$(queryFn?: QueryFn): Observable<Speaker[]> {
-    return this.getSpeakerListCore().valueChanges();
+    return this.getSpeakerListCore(queryFn).valueChanges();
   }
 
   getSpeakerCore(key: string): AngularFireObject<Speaker> {
