@@ -28,6 +28,10 @@
   color: $white-text;
 }
 
+.full-height, .full-height body, .full-height header, .full-height header .view {
+  height: 100%;
+}
+
 .hm-black-strong .mask, .hm-black-strong .full-bg-img {
   background-color: rgba(0,0,0,0.5)!important;
 }
