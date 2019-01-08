@@ -7,7 +7,8 @@
     <div class="full-bg-img flex-center">
       <div class="container text-center">
         <h1 class="h1-responsive font-weight-bold">{{ config?.eventName }}</h1>
-        <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Faça sua inscrição</a>
+        <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Faça
+          sua inscrição</a>
       </div>
       <div class="arrow bounce">
         <a class="fa fa-chevron-down fa-1x" [ngx-scroll-to]="'#about'"></a>
@@ -25,11 +26,16 @@
   <!--Section: About-->
   <section class="text-center" *ngIf="!config?.eventType || config?.eventType === 'DevFest'">
     <p>
-      <strong>{{ config?.groupName }}</strong>  um evento de Agilidade dirigido exclusivamente pela comunidade global de especialistas da <a href="https://www.scrum.org/">Scrum.org</a>, com a intenção de difundir nossa metodologia.
+      <strong>{{ config?.groupName }}</strong> um evento de Agilidade dirigido exclusivamente pela comunidade global de
+      especialistas da <a href="https://www.scrum.org/">Scrum.org</a>, com a intenção de difundir nossa metodologia.
     </p>
     <p>
-      Reuniremos <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>, <i>Agile Coaches</i>, <i>Project Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i> que proporcionarão uma grande oportunidade para você realizar networking com outros praticantes de Agilidade e Professional Scrum Trainers (PST´s) através de
-        <strong>Conversas individuais</strong>, <strong>Sessões Scrum Talks</strong>, <strong>Workshops mão na massa</strong>, <strong>Palestras inspiradoras</strong>.
+      Reuniremos <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>, <i>Agile Coaches</i>, <i>Project
+        Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i>
+      que proporcionarão uma grande oportunidade para você realizar networking com outros praticantes de Agilidade e
+      Professional Scrum Trainers (PST´s) através de
+      <strong>Conversas individuais</strong>, <strong>Sessões Scrum Talks</strong>, <strong>Workshops mão na massa</strong>,
+      <strong>Palestras inspiradoras</strong>.
     </p>
   </section>
   <section class="text-center" *ngIf="config?.eventGoogle || config?.eventFacebook || config?.eventTwitter || config?.eventInstagram">
@@ -37,10 +43,14 @@
     <div class="social-section mb-3">
       <h5 class="title mt-3 mb-4">Follow us on social media</h5>
       <ul>
-        <li *ngIf="config?.eventGoogle"><a class="btn-social-all" href="https://plus.google.com/{{ config?.eventGoogle }}" title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
-        <li *ngIf="config?.eventFacebook"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.eventFacebook }}" title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
-        <li *ngIf="config?.eventTwitter"><a class="btn-social-all" href="https://twitter.com/{{ config?.eventTwitter }}" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
-        <li *ngIf="config?.eventInstagram"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.eventInstagram }}" title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
+        <li *ngIf="config?.eventGoogle"><a class="btn-social-all" href="https://plus.google.com/{{ config?.eventGoogle }}"
+            title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
+        <li *ngIf="config?.eventFacebook"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.eventFacebook }}"
+            title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+        <li *ngIf="config?.eventTwitter"><a class="btn-social-all" href="https://twitter.com/{{ config?.eventTwitter }}"
+            title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+        <li *ngIf="config?.eventInstagram"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.eventInstagram }}"
+            title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
       </ul>
     </div>
     <!--/.Social buttons-->
@@ -60,7 +70,15 @@
           <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
         <h4><span [innerHTML]="speaker.name"></span></h4>
-        <h6><span [innerHTML]="speaker.title"></span><br/><strong *ngIf="speaker.company">@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
+        <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}"
+          target="_blank" rel="noopener">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="speaker.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speaker.linkedinLink }}"
+          target="_blank" rel="noopener">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <h6><strong *ngIf="speaker.company">@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
       </div>
     </div>
   </section>
@@ -80,7 +98,8 @@
       </div>
       <div class="col-md-7">
         <div class="card">
-          <img class="venue-photo" *ngIf="config?.venuePhoto" [src]="config?.venuePhoto" alt="{{ config?.venueName }}" title="{{ config?.venueName }}"/>
+          <img class="venue-photo" *ngIf="config?.venuePhoto" [src]="config?.venuePhoto" alt="{{ config?.venueName }}"
+            title="{{ config?.venueName }}" />
         </div>
       </div>
     </div>
@@ -96,12 +115,14 @@
     <div class="row">
       <div class="col-md-9 mb-5">
         <div id="map-container" class="z-depth-1" style="height: 300px">
-          <agm-map style="height: 300px" [latitude]="( config?.venueGeoData?.lat + 0.0003 )" [longitude]="( config?.venueGeoData?.lng )" [scrollwheel]="false" [zoom]="18">
+          <agm-map style="height: 300px" [latitude]="( config?.venueGeoData?.lat + 0.0003 )" [longitude]="( config?.venueGeoData?.lng )"
+            [scrollwheel]="false" [zoom]="18">
             <agm-marker [latitude]="( config?.venueGeoData?.lat )" [longitude]="( config?.venueGeoData?.lng )">
               <agm-info-window [isOpen]="true" [maxWidth]="180">
-                <strong>{{ config?.venueName }}</strong><br/>
-                {{ config?.venueAddress }}<br/>
-                <a href="https://www.google.com/maps/search/?api=1&query={{ config?.venueAddress }}" target="_blank" rel="noopener">View on Google Maps</a>
+                <strong>{{ config?.venueName }}</strong><br />
+                {{ config?.venueAddress }}<br />
+                <a href="https://www.google.com/maps/search/?api=1&query={{ config?.venueAddress }}" target="_blank"
+                  rel="noopener">View on Google Maps</a>
               </agm-info-window>
             </agm-marker>
           </agm-map>
@@ -112,11 +133,11 @@
           <div class="card location-card blue-grey lighten-5 text-center z-depth-2">
             <div class="card-body">
               <p class="col text-center mb-0">
-                <i class="fa fa-map-marker fa-lg"></i><br/>
-                <strong>{{ config?.venueName }}</strong><br/>
+                <i class="fa fa-map-marker fa-lg"></i><br />
+                <strong>{{ config?.venueName }}</strong><br />
                 {{ config?.venueAddress }}
               </p>
-              <img src="./../../assets/img/marker.png"/>
+              <img src="./../../assets/img/marker.png" />
             </div>
           </div>
         </a>
@@ -135,8 +156,10 @@
     <p>{{ config?.eventName }} is dedicated to a harassment-free conference experience for everyone.</p>
     <p>
       Before attending, please review the <a routerLink="/code-of-conduct">{{ config?.eventName }} Code of Conduct</a>.
-      <br/>This Code of Conduct applies to all attendees, speakers, volunteers, vendors, and organizers at {{ config?.eventName }}.
-      <br/>Please <a href="mailto:{{ config?.eventEmail }}?subject=Code of Conduct - {{ config?.eventName }}" target="_blank" rel="noopener">contact us</a> if you have any questions.
+      <br />This Code of Conduct applies to all attendees, speakers, volunteers, vendors, and organizers at {{
+      config?.eventName }}.
+      <br />Please <a href="mailto:{{ config?.eventEmail }}?subject=Code of Conduct - {{ config?.eventName }}" target="_blank"
+        rel="noopener">contact us</a> if you have any questions.
     </p>
   </section>
   <!--Section: CoC-->
@@ -148,7 +171,8 @@
   <!--Section: Pricing-->
   <section class="section">
     <div class="row pt-3">
-      <div class="mb-r" *ngFor="let ticket of (tickets$ | async); let i = index;" [ngClass]="tickets$.length > 3 ? 'col-lg-3' : 'col-lg-4'" style="padding: 20px 40px; margin: 0 auto;">
+      <div class="mb-r" *ngFor="let ticket of (tickets$ | async); let i = index;" [ngClass]="tickets$.length > 3 ? 'col-lg-3' : (tickets$.length > 2 ? 'col-lg-2' : 'col-lg-4')"
+        style="padding: 20px 40px; margin: 0 auto;">
         <div class="card" *ngIf="ticket.active">
           <div class="card-header white-text text-center" [ngClass]="styles[i]">
             <h1 class="dollar">{{ ticket.price }}</h1>
@@ -164,30 +188,16 @@
                 <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description2"></span>
                 <hr style="width: 60%;" />
               </span>
-              <span *ngIf="ticket.description3">
-                <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description3"></span>
-                <hr style="width: 60%;" />
-              </span>
-              <span *ngIf="ticket.description4">
-                <i class="fa fa-check"></i>&nbsp;<span [innerHTML]="ticket.description4"></span>
-              </span>
               <span *ngIf="!ticket.description1">
                 &nbsp;
                 <hr style="width: 60%;" />
               </span>
-              <span *ngIf="!ticket.description2">
+              <span *ngIf="ticket.description2">
                 &nbsp;
                 <hr style="width: 60%;" />
-              </span>
-              <span *ngIf="!ticket.description3">
-                &nbsp;
-                <hr style="width: 60%;" />
-              </span>
-              <span *ngIf="!ticket.description4">
-                &nbsp;
               </span>
               <div class="text-center ticket-button">
-                <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary waves-light" rel="nofollow">Buy Ticket</a>
+                <a *ngIf="ticket.active" target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary waves-light" rel="nofollow">Comprar</a>
               </div>
             </div>
           </div>
@@ -205,18 +215,19 @@
   <!--Section: Sponsors-->
   <section class="section">
     <div class="col sponsors">
-      <h4>We partner with some of the<br/>world's most innovative brands.</h4>
-      <a *ngIf="config?.sponsorURL" class="btn btn-primary waves-light" [href]="config?.sponsorURL" target="_blank" rel="noopener">Become a Sponsor</a>
+      <h4>We partner with some of the<br />world's most innovative brands.</h4>
+      <a *ngIf="config?.sponsorURL" class="btn btn-primary waves-light" [href]="config?.sponsorURL" target="_blank" rel="noopener">Become
+        a Sponsor</a>
     </div>
     <div class="col sponsors" *ngFor="let level of (levels$ | async)">
       <h3 style="font-weight: bold;">
         {{ level.name }}
       </h3>
       <hr style="width: 60%;" />
-      <br/>
+      <br />
       <div class="row">
         <ng-container *ngFor="let sponsor of (sponsors$ | async)">
-          <ng-container *ngIf="level.$key === sponsor.level">
+          <ng-container *ngIf="level.rank === sponsor.level">
             <span class="col-md-6" style="padding: 20px 40px; margin: 0 auto;">
               <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
