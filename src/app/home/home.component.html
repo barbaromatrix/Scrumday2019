@@ -6,9 +6,8 @@
   <section class="view intro-1 hm-black-strong">
     <div class="full-bg-img flex-center">
       <div class="container text-center">
-        <h1 class="h1-responsive font-weight-bold">{{ config?.eventName }}</h1>
-        <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary btn-lg" rel="nofollow">Faça
-          sua inscrição</a>
+        <img class="view-logo" src="https://firebasestorage.googleapis.com/v0/b/scrumday-demo.appspot.com/o/config%2FScrumDay2019_02.png?alt=media&token=f1664cb6-8104-4440-9912-c9c9e800f775" alt="Logo do evento" />
+        <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-lg btn-custom-subscribe" rel="nofollow">Faça sua inscrição</a>
       </div>
       <div class="arrow bounce">
         <a class="fa fa-chevron-down fa-1x" [ngx-scroll-to]="'#about'"></a>
@@ -19,46 +18,27 @@
 </header>
 
 <div class="container" *ngIf="siteConfig$ | async as config">
-  <div id="about" class="divider-new pt-5">
-    <h2 class="h2-responsive">Sobre</h2>
+  <div id="about" class="divider-new spaced">
+    <h2 class="h2-responsive">Sobre o Scrum Day Brazil</h2>
   </div>
 
   <!--Section: About-->
-  <section class="text-center" *ngIf="!config?.eventType || config?.eventType === 'DevFest'">
+  <section class="text-center" *ngIf="!config?.eventType || config?.eventType === 'DevFest'" style="line-height: 24px">
     <p>
-      <strong>{{ config?.groupName }}</strong> um evento de Agilidade dirigido exclusivamente pela comunidade global de
-      especialistas da <a href="https://www.scrum.org/">Scrum.org</a>, com a intenção de difundir nossa metodologia.
+      Os <strong>{{ config?.groupName }}s</strong> são eventos de Agilidade dirigido exclusivamente pela comunidade global de
+      especialistas da <a href="https://www.scrum.org/">Scrum.org</a>, com a intenção de difundir sua metodologia.
     </p>
     <p>
-      Reuniremos <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>, <i>Agile Coaches</i>, <i>Project
-        Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i>
-      que proporcionarão uma grande oportunidade para você realizar networking com outros praticantes de Agilidade e
-      Professional Scrum Trainers (PST´s) através de
-      <strong>Conversas individuais</strong>, <strong>Sessões Scrum Talks</strong>, <strong>Workshops mão na massa</strong>,
+      O Scrum Day é uma ótima oportunidade para indivíduos e equipes aumentarem as chances de sucesso na busca por melhores resultados no desenvolvimento de software. O evento é direcionado pela comunidade global de especialistas da Scrum.org, com a presença de <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>, <i>Agile Coaches</i>, <i>Project
+          Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i> para aumentar seu networking com outros praticantes e Professional Scrum Trainers (PST's) por meio de:
+      <strong>Conversas individuais</strong>, <strong>Workshops</strong>, <strong>Sessões de Open Space</strong>,
       <strong>Palestras inspiradoras</strong>.
     </p>
   </section>
-  <section class="text-center" *ngIf="config?.eventGoogle || config?.eventFacebook || config?.eventTwitter || config?.eventInstagram">
-    <!--Social buttons-->
-    <div class="social-section mb-3">
-      <h5 class="title mt-3 mb-4">Follow us on social media</h5>
-      <ul>
-        <li *ngIf="config?.eventGoogle"><a class="btn-social-all" href="https://plus.google.com/{{ config?.eventGoogle }}"
-            title="Google+" target="_blank" rel="noopener"><i class="fa fa-google-plus"></i></a></li>
-        <li *ngIf="config?.eventFacebook"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.eventFacebook }}"
-            title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
-        <li *ngIf="config?.eventTwitter"><a class="btn-social-all" href="https://twitter.com/{{ config?.eventTwitter }}"
-            title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
-        <li *ngIf="config?.eventInstagram"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.eventInstagram }}"
-            title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
-      </ul>
-    </div>
-    <!--/.Social buttons-->
-  </section>
   <!--Section: About-->
 
-  <div class="divider-new pt-5" *ngIf="(speakers$ | async)?.length > 0">
-    <h2 class="h2-responsive">Keynotes e Palestrantes</h2>
+  <div class="divider-new pt-5 spaced" *ngIf="(speakers$ | async)?.length > 0">
+    <h2 class="h2-responsive">Keynotes</h2>
   </div>
 
   <!--Section: Featured Speakers-->
@@ -84,8 +64,8 @@
   </section>
   <!--Section: Featured Speakers-->
 
-  <div class="divider-new" id="the-venue" *ngIf="config?.venueName">
-    <h2 class="h2-responsive">The Venue</h2>
+  <div class="divider-new spaced" id="the-venue" *ngIf="config?.venueName">
+    <h2 class="h2-responsive">O Local</h2>
   </div>
 
   <!--Section: The Venue-->
@@ -106,7 +86,7 @@
   </section>
   <!--/Section: The Venue-->
 
-  <div class="divider-new" *ngIf="config?.venueGeoData">
+  <div class="divider-new spaced" *ngIf="config?.venueGeoData">
     <h2 class="h2-responsive">Localização</h2>
   </div>
 
@@ -146,26 +126,8 @@
   </section>
   <!--Section: Location-->
 
-  <div class="divider-new pt-5">
-    <h2 class="h2-responsive">Código de Conduta</h2>
-  </div>
-
-  <!--Section: CoC-->
-  <section id="coc" class="text-center">
-    <h5>Be nice. Be respectful. Be collaborative.</h5>
-    <p>{{ config?.eventName }} is dedicated to a harassment-free conference experience for everyone.</p>
-    <p>
-      Before attending, please review the <a routerLink="/code-of-conduct">{{ config?.eventName }} Code of Conduct</a>.
-      <br />This Code of Conduct applies to all attendees, speakers, volunteers, vendors, and organizers at {{
-      config?.eventName }}.
-      <br />Please <a href="mailto:{{ config?.eventEmail }}?subject=Code of Conduct - {{ config?.eventName }}" target="_blank"
-        rel="noopener">contact us</a> if you have any questions.
-    </p>
-  </section>
-  <!--Section: CoC-->
-
-  <div class="divider-new pt-5" *ngIf="(tickets$ | async)?.length > 0">
-    <h2 class="h2-responsive">Pricing</h2>
+  <div class="divider-new spaced pt-5" *ngIf="(tickets$ | async)?.length > 0">
+    <h2 class="h2-responsive">Preço</h2>
   </div>
 
   <!--Section: Pricing-->
@@ -173,8 +135,8 @@
     <div class="row pt-3">
       <div class="mb-r" *ngFor="let ticket of (tickets$ | async); let i = index;" [ngClass]="tickets$.length > 3 ? 'col-lg-3' : (tickets$.length > 2 ? 'col-lg-2' : 'col-lg-4')"
         style="padding: 20px 40px; margin: 0 auto;">
-        <div class="card" *ngIf="ticket.active">
-          <div class="card-header white-text text-center" [ngClass]="styles[i]">
+        <div class="card">
+          <div class="card-header white-text text-center price-card">
             <h1 class="dollar">{{ ticket.price }}</h1>
             <h6>{{ ticket.name }}</h6>
           </div>
@@ -197,7 +159,9 @@
                 <hr style="width: 60%;" />
               </span>
               <div class="text-center ticket-button">
-                <a *ngIf="ticket.active" target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-primary waves-light" rel="nofollow">Comprar</a>
+                <a *ngIf="todayDate >= ticket.beginDate && todayDate <= ticket.endDate" target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-custom-price waves-light white-text" rel="nofollow">Comprar agora!</a>
+                <span *ngIf="todayDate >= ticket.endDate" class="btn btn-custom-price white-text" rel="nofollow">Vendas encerradas</span>
+                <span *ngIf="todayDate < ticket.beginDate" class="btn btn-custom-price white-text" rel="nofollow">Não iniciado ainda</span>
               </div>
             </div>
           </div>
@@ -208,23 +172,13 @@
   </section>
   <!--/Section: Pricing-->
 
-  <div class="divider-new pt-5" *ngIf="(sponsors$ | async)?.length > 0">
+  <div class="divider-new spaced pt-5" *ngIf="(sponsors$ | async)?.length > 0">
     <h2 class="h2-responsive">Organizadores</h2>
   </div>
 
   <!--Section: Sponsors-->
   <section class="section">
-    <div class="col sponsors">
-      <h4>We partner with some of the<br />world's most innovative brands.</h4>
-      <a *ngIf="config?.sponsorURL" class="btn btn-primary waves-light" [href]="config?.sponsorURL" target="_blank" rel="noopener">Become
-        a Sponsor</a>
-    </div>
     <div class="col sponsors" *ngFor="let level of (levels$ | async)">
-      <h3 style="font-weight: bold;">
-        {{ level.name }}
-      </h3>
-      <hr style="width: 60%;" />
-      <br />
       <div class="row">
         <ng-container *ngFor="let sponsor of (sponsors$ | async)">
           <ng-container *ngIf="level.rank === sponsor.level">

@@ -1,8 +1,15 @@
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./styles/delorean.scss";
 @import "./styles/loading.scss";
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
 
 .intro-1 {
-  background: url("assets/img/hero.png") no-repeat center center;
+  background: #002A47 no-repeat center center;
   background-size: cover;
+}
+
+.divider-new {
+  &:after, &:before {
+    background-color: #002A47 !important;
+  }
 }
