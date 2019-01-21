@@ -13,8 +13,9 @@ footer.page-footer {
 }
 
 footer.page-footer .footer-copyright {
+  background-color: #002A47;
   line-height: normal;
-  padding-top: 10px;
+  padding: 10px 0 5px 0;
 }
 
 footer.page-footer ul {
@@ -25,6 +26,12 @@ footer.page-footer ul {
 
 footer.page-footer li {
   list-style: none;
+}
+
+.custom-footer {
+  &-background {
+    background-color: #002A47;
+  }
 }
 
 @media only screen and (max-width: 992px) {

@@ -1,5 +1,7 @@
+$defaultColor: #13BF69;
+
 .dollar:before {
-  content: '\0024';
+  content: 'R\0024\00a0';
 }
 
 .ticket-button {
@@ -10,6 +12,18 @@
   height: 300px;
   line-height: 260px;
   cursor: pointer;
+}
+
+.divider-new.spaced {
+  h2 {
+    font-family: 'Roboto Condensed', 'sans-serif';
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  h2:before, h2:after {
+    content: '\00a0\00a0\00a0\00a0\00a0'
+  }
 }
 
 .location-card p {
@@ -39,6 +53,22 @@
   width: 100%;
   height: auto;
   max-height: 450px;
+}
+
+.view-logo {
+  max-height: 450px;
+  transform: translate(40%, -20%);
+}
+
+// TODO: enhance this
+.btn-custom {
+  &-price, &-subscribe {
+    background-color: $defaultColor !important;
+  }
+}
+
+.price-card {
+  background-color: $defaultColor !important;
 }
 
 .arrow {
