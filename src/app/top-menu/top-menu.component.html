@@ -1,26 +1,25 @@
 <!--Navbar-->
 <!-- TODO: search correct color to replace green accent-3 to #002A47-->
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark green accent-3 fixed-top scrolling-navbar d-print-none"
+<mdb-navbar SideClass="navbar navbar-expand-lg fixed-top scrolling-navbar d-print-none navbar-dark navbar-custom-color "
   *ngIf="siteConfig$ | async as config">
   <logo>
-    <a class="navbar-brand" routerLink="/home">
-      <span>SDB.</span>
-      <span>19</span>
+    <a class="navbar-brand custom-navbar-logo" routerLink="/home">
+     <img src="../../assets/img/logo.png" alt="Scrumday 2019" class="img-responsive">
     </a>
   </logo>
   <links>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbRippleRadius routerLink="/sessions">Programação</a>
+        <a class="nav-link waves-light text-white" mdbRippleRadius routerLink="/sessions">Programação</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbRippleRadius routerLink="/speakers">Palestrantes</a>
+        <a class="nav-link waves-light text-white" mdbRippleRadius routerLink="/speakers">Palestrantes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link waves-light" mdbRippleRadius routerLink="/sponsors">Patrocinadores</a>
+        <a class="nav-link waves-light text-white" mdbRippleRadius routerLink="/sponsors">Patrocinadores</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link waves-light" mdbRippleRadius routerLink="/">Eventos passados</a>
+          <a class="nav-link waves-light text-white" mdbRippleRadius routerLink="/">Eventos passados</a>
       </li>
     </ul>
   </links>
