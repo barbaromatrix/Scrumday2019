@@ -5,6 +5,7 @@ export class Speaker {
   name: string;
   title: string;
   company: string;
+  shortDescription: string;
   description: string;
   photoURL: File;
   googleLink: string;
