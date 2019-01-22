@@ -6,7 +6,7 @@
 
 $font-size: 1em;
 $line-height: 1.5;
-$lines-to-show: 5;
+$lines-to-show: 10;
 
 .speaker-bio {
   display: block; /* Fallback for non-webkit */
@@ -17,7 +17,8 @@ $lines-to-show: 5;
   line-height: $line-height;
   -webkit-line-clamp: $lines-to-show;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  text-align: justify;
+  // overflow: hidden;
   text-overflow: ellipsis;
 }
 
