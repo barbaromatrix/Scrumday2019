@@ -9,7 +9,7 @@
       <button type="button" class="btn btn-success" routerLink="/speakers/new">Create Speaker</button>
     </div>
     <div class="row text-center" *ngIf="(speakers$ | async)?.length !== 0 && speakers$ | async as speakers">
-      <div *ngFor="let speaker of speakers" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 30px; margin: 0 auto;">
+      <div *ngFor="let speaker of speakers" class="col-lg-4 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 30px; margin: 0 auto;">
         <div class="avatar show-modal" (click)="showModal(speaker)" title="{{ speaker.name }}" alt="{{ speaker.name }}">
           <img *ngIf="!speaker.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
           <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
@@ -61,7 +61,7 @@
           </strong>
           <h6 *ngIf="speakerDetail?.title && speakerDetail?.company">
             <span *ngIf="speakerDetail?.title" [innerHTML]="speakerDetail?.title"></span>
-            <strong *ngIf="speakerDetail?.company">@
+            <strong *ngIf="speakerDetail?.company">&nbsp;@
               <span [innerHTML]="speakerDetail?.company"></span>
             </strong>
           </h6>
@@ -71,14 +71,6 @@
         <p [innerHTML]="speakerDetail?.description"></p>
       </div>
       <div class="modal-footer justify-content-center">
-        <a *ngIf="speakerDetail?.googleLink" class="icons-sm gplus-ic" href="https://plus.google.com/{{ speakerDetail?.googleLink }}"
-          target="_blank" rel="noopener">
-          <i class="fa fa-google-plus" aria-hidden="true"></i>
-        </a>
-        <a *ngIf="speakerDetail?.facebookLink" class="icons-sm fb-ic" href="https://www.facebook.com/{{ speakerDetail?.facebookLink }}"
-          target="_blank" rel="noopener">
-          <i class="fa fa-facebook" aria-hidden="true"></i>
-        </a>
         <a *ngIf="speakerDetail?.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speakerDetail?.twitterLink }}"
           target="_blank" rel="noopener">
           <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -86,14 +78,6 @@
         <a *ngIf="speakerDetail?.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ speakerDetail?.linkedinLink }}"
           target="_blank" rel="noopener">
           <i class="fa fa-linkedin" aria-hidden="true"></i>
-        </a>
-        <a *ngIf="speakerDetail?.githubLink" class="icons-sm git-ic" href="https://github.com/{{ speakerDetail?.githubLink }}"
-          target="_blank" rel="noopener">
-          <i class="fa fa-github" aria-hidden="true"></i>
-        </a>
-        <a *ngIf="speakerDetail?.websiteLink" class="icons-sm email-ic" href="{{ speakerDetail?.websiteLink }}" target="_blank"
-          rel="noopener">
-          <i class="fa fa-chrome" aria-hidden="true"></i>
         </a>
       </div>
     </div>
