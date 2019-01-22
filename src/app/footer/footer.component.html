@@ -20,15 +20,14 @@
       <div class="col-lg-2 col-md-6">
         <h5 class="title font-weight-bold mt-3 mb-4">Entre em contato!</h5>
         <ul>
-          <li class="btn-social-all"><a href="mailto:{{ config?.eventEmail }}" target="_blank" rel="noopener"><i class="fa fa-envelope"></i> {{ config?.eventEmail }}</a></li> 
-          <li *ngIf="config?.eventTwitter"><a href="https://twitter.com/intent/tweet?text=@{{ config?.eventTwitter }}" target="_blank" rel="noopener">@{{ config?.eventTwitter }}</a></li>
+          <li class="btn-social-all"><a href="mailto:{{ config?.eventEmail }}" target="_blank" rel="noopener"><i class="fa fa-envelope"></i> {{ config?.eventEmail }}</a></li>
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
       <div class="col-lg-2 col-md-3">
         <h5 class="title font-weight-bold mt-3 mb-4">FAQ</h5>
         <ul>
-          <li><a routerLink="/code-of-conduct">Code of Conduct</a></li>
+          <li><a routerLink="/code-of-conduct">Código de Conduta</a></li>
         </ul>
       </div>
 
@@ -40,7 +39,7 @@
   <div class="footer-copyright">
     <div class="container-fluid text-center">
       &copy; {{ copyright }} Copyright <a [href]="config?.groupWebsite" target="_blank" rel="noopener">{{ config?.groupName }}</a>
-      <br>Based on the <a href="https://github.com/neojato/DeLorean-v2" target="_blank" rel="noopener">DeLorean Project</a>
+      <br>Baseado no projeto<a href="https://github.com/neojato/DeLorean-v2" target="_blank" rel="noopener">DeLorean</a>
     </div>
   </div>
   <!--/.Copyright-->
