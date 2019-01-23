@@ -181,7 +181,7 @@
     <div class="col sponsors" *ngFor="let level of (levels$ | async)">
       <div class="row">
         <ng-container *ngFor="let sponsor of (sponsors$ | async)">
-          <ng-container *ngIf="level.rank === sponsor.level">
+          <ng-container *ngIf="level.rank === sponsor.level && level.active">
             <span class="col-md-6" style="padding: 20px 40px; margin: 0 auto;">
               <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
