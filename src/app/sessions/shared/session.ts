@@ -12,5 +12,5 @@ export class Session {
   level: string;
   surveys: any;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
-  active: boolean = true;
+  active = true;
 }
