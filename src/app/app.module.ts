@@ -57,7 +57,7 @@ import { KeysPipe } from './pipes/keys.pipe';
 import { CocComponent } from './coc/coc.component';
 import { registerLocaleData } from '@angular/common';
 
-registerLocaleData(localePtBr)
+registerLocaleData(localePtBr);
 
 @NgModule({
   schemas: [ NO_ERRORS_SCHEMA ],

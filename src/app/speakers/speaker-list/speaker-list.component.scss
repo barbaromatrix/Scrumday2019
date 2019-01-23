@@ -6,7 +6,13 @@
 
 $font-size: 1em;
 $line-height: 1.5;
-$lines-to-show: 5;
+$lines-to-show: 10;
+
+.speaker-social-description {
+  a {
+    color: #13BF69;
+  }
+}
 
 .speaker-bio {
   display: block; /* Fallback for non-webkit */
@@ -17,6 +23,7 @@ $lines-to-show: 5;
   line-height: $line-height;
   -webkit-line-clamp: $lines-to-show;
   -webkit-box-orient: vertical;
+  text-align: justify;
   overflow: hidden;
   text-overflow: ellipsis;
 }

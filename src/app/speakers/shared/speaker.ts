@@ -5,6 +5,7 @@ export class Speaker {
   name: string;
   title: string;
   company: string;
+  shortDescription: string;
   description: string;
   photoURL: File;
   googleLink: string;
@@ -13,7 +14,7 @@ export class Speaker {
   linkedinLink: string;
   githubLink: string;
   websiteLink: string;
-  featured: boolean = false;
+  featured = false;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
-  active: boolean = true;
+  active = true;
 }

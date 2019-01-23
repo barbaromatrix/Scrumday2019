@@ -7,16 +7,5 @@ export class Sponsor {
   logoURL: File;
   level: string;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
-  active: boolean = true;
+  active = true;
 }
-
-/*
-{
-  "$key": "1",
-  "name": "Concrete",
-  "websiteLink": "www.concrete.com.br",
-  "logoURL": "/",
-  "level": "gold",
-  "active": true,
-}
-*/

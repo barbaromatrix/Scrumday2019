@@ -4,5 +4,5 @@ export class Section {
   $key: string;
   title: string;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
-  active: boolean = true;
+  active = true;
 }
