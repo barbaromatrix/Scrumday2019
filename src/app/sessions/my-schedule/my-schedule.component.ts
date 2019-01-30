@@ -39,7 +39,8 @@ export class MyScheduleComponent implements OnInit {
   }
 
   getSpeakerName(speakerKey) {
-    return this.speakerService.getSpeakerName(speakerKey);
+    // return this.speakerService.getSpeakerName(speakerKey);
+    return 'Jéssica'
   }
 
 }

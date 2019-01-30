@@ -1,3 +1,5 @@
+@import "../../../styles/variables";
+
 .clearfix::after {
   content: "";
   display: table;
@@ -10,7 +12,8 @@ $lines-to-show: 10;
 
 .speaker-social-description {
   a {
-    color: #13BF69;
+    color: $backgroundColor;
+    font-weight: 400;
   }
 }
 

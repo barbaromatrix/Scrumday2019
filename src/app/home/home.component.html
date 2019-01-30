@@ -4,10 +4,15 @@
 
   <!--Intro Section-->
   <section class="view intro-1 hm-black-strong">
+    <!-- <video autoplay loop muted>
+      <source src="../../assets/videos/scrumDay2018.mp4" type="video/mp4">
+    </video> -->
     <div class="full-bg-img flex-center">
       <div class="container text-center">
-        <img class="view-logo" src="https://firebasestorage.googleapis.com/v0/b/scrumday-demo.appspot.com/o/config%2FScrumDay2019_02.png?alt=media&token=f1664cb6-8104-4440-9912-c9c9e800f775" alt="Logo do evento" />
-        <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-lg btn-custom-subscribe" rel="nofollow">Faça sua inscrição</a>
+        <img class="view-logo" src="https://firebasestorage.googleapis.com/v0/b/scrumday-demo.appspot.com/o/config%2FScrumDay2019_02.png?alt=media&token=f1664cb6-8104-4440-9912-c9c9e800f775"
+          alt="Logo do evento" />
+        <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-lg btn-custom-subscribe" rel="nofollow">Faça
+          sua inscrição</a>
       </div>
       <div class="arrow bounce">
         <a class="fa fa-chevron-down fa-1x" [ngx-scroll-to]="'#about'"></a>
@@ -25,12 +30,17 @@
   <!--Section: About-->
   <section class="text-center" *ngIf="!config?.eventType || config?.eventType === 'DevFest'" style="line-height: 24px">
     <p>
-      Os <strong>{{ config?.groupName }}s</strong> são eventos de Agilidade dirigido exclusivamente pela comunidade global de
+      Os <strong>{{ config?.groupName }}s</strong> são eventos de Agilidade dirigido exclusivamente pela comunidade
+      global de
       especialistas da <a href="https://www.scrum.org/">Scrum.org</a>, com a intenção de difundir sua metodologia.
     </p>
     <p>
-      O Scrum Day é uma ótima oportunidade para indivíduos e equipes aumentarem as chances de sucesso na busca por melhores resultados no desenvolvimento de software. O evento é direcionado pela comunidade global de especialistas da Scrum.org, com a presença de <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>, <i>Agile Coaches</i>, <i>Project
-          Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i> para aumentar seu networking com outros praticantes e Professional Scrum Trainers (PST's) por meio de:
+      O Scrum Day é uma ótima oportunidade para indivíduos e equipes aumentarem as chances de sucesso na busca por
+      melhores resultados no desenvolvimento de software. O evento é direcionado pela comunidade global de
+      especialistas da Scrum.org, com a presença de <i>Product Owners</i>, <i>Product Managers</i>, <i>Scrum Masters</i>,
+      <i>Agile Coaches</i>, <i>Project
+        Managers</i>, <i>Developers,</i> <i>Product Designers</i>, <i>Middle Management</i>, <i>C-Level</i> e <i>Investidores</i>
+      para aumentar seu networking com outros praticantes e Professional Scrum Trainers (PST's) por meio de:
       <strong>Conversas individuais</strong>, <strong>Workshops</strong>, <strong>Sessões de Open Space</strong>,
       <strong>Palestras inspiradoras</strong>.
     </p>
@@ -136,7 +146,7 @@
       <div class="mb-r" *ngFor="let ticket of (tickets$ | async); let i = index;" [ngClass]="tickets$.length > 3 ? 'col-lg-3' : (tickets$.length > 2 ? 'col-lg-2' : 'col-lg-4')"
         style="padding: 20px 40px; margin: 0 auto;">
         <div class="card">
-          <div class="card-header white-text text-center price-card">
+          <div class="card-header white-text text-center" [ngClass]="(todayDate >= ticket.beginDate && todayDate <= ticket.endDate) ? 'price-card' : 'price-card-invalid'">
             <h1 class="dollar">{{ ticket.price }}</h1>
             <h6>{{ ticket.name }}</h6>
           </div>
@@ -159,9 +169,13 @@
                 <hr style="width: 60%;" />
               </span>
               <div class="text-center ticket-button">
-                <a *ngIf="todayDate >= ticket.beginDate && todayDate <= ticket.endDate" target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-custom-price waves-light white-text" rel="nofollow">Comprar agora!</a>
-                <span *ngIf="todayDate >= ticket.endDate" class="btn btn-custom-price white-text" rel="nofollow">Vendas encerradas</span>
-                <span *ngIf="todayDate < ticket.beginDate" class="btn btn-custom-price white-text" rel="nofollow">Não iniciado ainda</span>
+                <a *ngIf="todayDate >= ticket.beginDate && todayDate <= ticket.endDate" target="_blank" rel="noopener"
+                  [href]="config?.ticketURL" class="btn btn-custom-price waves-light white-text" rel="nofollow">Comprar
+                  agora!</a>
+                <span *ngIf="todayDate >= ticket.endDate" class="btn btn-custom-price-invalid white-text" rel="nofollow">Vendas
+                  encerradas</span>
+                <span *ngIf="todayDate < ticket.beginDate" class="btn btn-custom-price-invalid white-text" rel="nofollow">Não
+                  iniciado ainda</span>
               </div>
             </div>
           </div>

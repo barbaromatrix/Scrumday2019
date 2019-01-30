@@ -19,7 +19,8 @@ export class SessionService {
   }
 
   getSessionList$(queryFn?: QueryFn): Observable<Session[]> {
-    return this.getSessionListCore(queryFn).valueChanges();
+    const observableData = this.getSessionListCore(queryFn).valueChanges()
+    return observableData
   }
 
   getSessionCore(key: string): AngularFireObject<Session> {

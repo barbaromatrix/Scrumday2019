@@ -41,8 +41,4 @@ export class HomeComponent implements OnInit {
     this.levels$ = this.levelService.getLevelList$(ref => ref.orderByChild('rank'));
     this.tickets$ = this.ticketService.getTicketList$(ref => ref.orderByChild('beginDate'));
   }
-
-  blaToFilterCoupons(beginDate, endDate, refDate) {
-    return refDate >= beginDate && refDate <= endDate;
-  }
 }

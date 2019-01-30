@@ -1,4 +1,4 @@
-$defaultColor: #13BF69;
+@import "../../styles/variables";
 
 .dollar:before {
   content: 'R\0024\00a0';
@@ -65,9 +65,15 @@ $defaultColor: #13BF69;
   &-price, &-subscribe {
     background-color: $defaultColor !important;
   }
+  &-price-invalid {
+    background-color: $invalidColor !important;
+  }
 }
 
 .price-card {
+  &-invalid {
+    background-color: $invalidColor !important;
+  }
   background-color: $defaultColor !important;
 }
 

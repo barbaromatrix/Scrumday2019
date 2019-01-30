@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .social-section ul li {
   display: inline-block;
   padding: 0 8px;
@@ -13,7 +15,7 @@ footer.page-footer {
 }
 
 footer.page-footer .footer-copyright {
-  background-color: #002A47;
+  background-color: $backgroundColor;
   line-height: normal;
   padding: 10px 0 5px 0;
 }

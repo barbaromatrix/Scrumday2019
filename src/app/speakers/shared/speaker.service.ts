@@ -37,12 +37,14 @@ export class SpeakerService {
     return this.getSpeakerCore(key).valueChanges();
   }
 
-  getSpeakerName(key: string): any {
+  getSpeakerName(key: string) {
     const path = `${this.basePath}/${key}/name`;
     let speakerName: string;
-    this.db.object(path).snapshotChanges().subscribe(snapshot => {
-      speakerName = snapshot.payload.val() as string;
-    });
+    this.db.object(path).snapshotChanges()
+      .subscribe(snapshot => {
+        speakerName = snapshot.payload.val() as string;
+      });
+
     return speakerName;
   }
 

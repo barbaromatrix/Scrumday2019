@@ -1,4 +1,5 @@
 import { SpeakerService } from './../../speakers/shared/speaker.service';
+import { Speaker } from './../../speakers/shared/speaker';
 import { Router } from '@angular/router';
 import { SectionService } from './../shared/section.service';
 import { AuthService } from './../../services/auth/auth.service';
@@ -8,6 +9,7 @@ import { Section } from './../shared/section';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
 import { Observable } from 'rxjs/Rx';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-session-list',
@@ -18,6 +20,7 @@ import { Observable } from 'rxjs/Rx';
 export class SessionListComponent implements OnInit {
   public sessions$: Observable<Session[]>;
   public sections$: Observable<Section[]>;
+  public speakers$: Observable<Speaker[]>;
   section: Section = new Section();
 
   @ViewChild('sectionModal') public sectionModal: ModalDirective;
@@ -31,8 +34,8 @@ export class SessionListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sessions$ = this.sessionService.getSessionList$();
-    this.sections$ = this.sectionService.getSectionList$();
+    this.sessions$ = this.sessionService.getSessionList$(ref => ref.orderByChild('active').equalTo(true));
+    this.sections$ = this.sectionService.getSectionList$(ref => ref.orderByChild('active').equalTo(true));
   }
 
   isLoggedIn() {
@@ -45,7 +48,7 @@ export class SessionListComponent implements OnInit {
 
   openDetails(session) {
     if ((this.isLoggedIn() && this.isAdmin()) || session.abstract) {
-      this.router.navigate([`/sessions/${session.$key}`]);
+      this.router.navigate([`/sessions/${session.key}`]);
     }
   }
 
