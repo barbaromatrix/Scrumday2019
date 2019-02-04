@@ -4,7 +4,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
 
 .intro-1 {
-  background: #002A47 no-repeat center center;
+  // background: transparent no-repeat center center;
+  background: url("assets/img/hero.png") no-repeat center center;
   background-size: cover;
 }
 

@@ -5,107 +5,146 @@
   <!--Section: CoC-->
   <section class="section" *ngIf="siteConfig$ | async as siteConfig">
     <div>
-      <h1 class="section-heading">Code of Conduct</h1>
+      <h1 class="section-heading">Código de Conduta</h1>
     </div>
-    <div class="pt-1 pb-4">
-      <h4 class="font-weight-bold">Anti-harassment Policy</h4>
+    <div class="pt-1 pb-4" style="text-align: justify">
       <h5>
-        {{ siteConfig?.eventName }} is dedicated to providing a fun harassment-free conference experience for everyone,
-        regardless of gender, gender identity, sexual orientation, disability, physical appearance, body size, race, socioeconomic
-        status, or religion (or lack thereof). We do not tolerate harassment of conference participants in any form. Sexual language
-        and imagery is not appropriate for any conference venue, including talks. Conference participants violating these rules may
-        be sanctioned or expelled from the conference without a refund at the discretion of the conference organizers.
+        Para a promoção de um ambiente de interações construtivas e positivas, este documento representa nossos anseios
+        e direcionamentos para as relações sociais existentes entre os membros do comitê de Organização do {{
+        siteConfig?.eventName }} e sua participação com a comunidade.
       </h5>
+      <h5>Este Código de Conduta é o nosso compromisso em manter atitudes éticas durante toda a atuação das atividades
+        que tange a organização do evento e a relação entre seus membros.</h5>
+      <h5>Em caso de conflito entre princípios e regras descritas neste Código de Conduta, prevalecem as regras de
+        natureza éticas aqui mencionadas. Nosso princípio é que nenhum motivo - de concorrência econômica, de ambição
+        pessoal ou proveito profissional - deve pôr em causa nosso compromisso com a integridade e o respeito mútuo.
+      </h5>
+      <h5>Pertencemos a uma comunidade que preza pelo bem-estar de todos e queremos garantir que todos se sintam à
+        vontade ao redor de outros membros da comunidade.
+      </h5>
+
     </div>
     <div class="pt-1 pb-4">
-      <h4 class="font-weight-bold">Important Contacts</h4>
+      <h4 class="font-weight-bold">A quem se destina este documento?</h4>
       <p>
-        Conference staff will be happy to help participants contact venue security or local law enforcement, provide escorts, or
-        otherwise assist those experiencing harassment to feel safe for the duration of the conference. We value your attendance.
+        Este documento é endereçado aos membros organizadores do comitê de Organização do Scrum Day, que conta com a
+        participação de inúmeros profissionais da indústria com diferentes históricos, e que se relacionam com
+        fornecedores, prestadores de serviço e empresas, além de se relacionarem entre si.
+        Esperamos que este documento seja um guia para relações mais humanas, honestas e íntegras entre todos os
+        envolvidos com o evento.
       </p>
-      <p class="font-weight-bold">If your physical safety or the physical safety of others is at risk, please dial 911 immediately.</p>
-      <p *ngIf="siteConfig?.eventReportEmail">Code of Conduct Team: <a href="mailto:{{ siteConfig?.eventReportEmail }}?subject=CoC Alert - {{ siteConfig?.eventName }}">{{ siteConfig?.eventReportEmail }}</a></p>
-      <p>{{ siteConfig?.eventName }} Organizers: <a href="mailto:{{ siteConfig?.eventEmail }}?subject=CoC Alert - {{ siteConfig?.eventName }}">{{ siteConfig?.eventEmail }}</a></p>
-      <p><a href="https://www.rainn.org/" target="_blank" rel="noopener">RAINN</a> Sexual Assault Crisis Line/Victims Crisis Line (24 hours): <a href="tel:800.656.4673">800.656.4673</a></p>
+      <!-- <p *ngIf="siteConfig?.eventReportEmail">Code of Conduct Team: <a href="mailto:{{ siteConfig?.eventReportEmail }}?subject=CoC Alert - {{ siteConfig?.eventName }}">{{
+          siteConfig?.eventReportEmail }}</a></p> -->
     </div>
     <div class="pt-1 pb-4">
-      <h4 class="font-weight-bold">Full Code of Conduct</h4>
+      <h4 class="font-weight-bold">Qual o objetivo deste documento?</h4>
       <p>
-        To make clear what is expected, all attendees, speakers, exhibitors, organizers and volunteers at {{ siteConfig?.eventName }}
-        are required to conform to the following Code of Conduct. Organizers will enforce this code throughout the event.
-      </p>
-      <p>
-        {{ siteConfig?.eventName }} is dedicated to providing a fun harassment-free conference experience for everyone,
-        regardless of gender, gender identity, sexual orientation, disability, physical appearance, body size, race, socioeconomic
-        status, or religion (or lack thereof). We do not tolerate harassment of conference participants in any form. Sexual language
-        and imagery is not appropriate for any conference venue, including talks. Conference participants violating these rules may
-        be sanctioned or expelled from the conference without a refund at the discretion of the conference organizers.
+        O Código foi criado com o objetivo fundamental de:
       </p>
       <div>
-        Harassment includes, but is not limited to:
         <ul>
           <li>
-            Verbal comments that reinforce social structures of domination related to gender, gender identity, sexual orientation, disability, physical
-            appearance, body size, race, socioeconomic status, or religion (or lack thereof)
+            Compartilhar com todos os princípios que orientam as atividades do grupo e as regras de natureza ética que
+            devem orientar o comportamento de todos os seus membros e parceiros;
           </li>
-          <li>Sexual images in public spaces</li>
-          <li>Deliberate intimidation, stalking, or following</li>
-          <li>Harassing photography or recording</li>
-          <li>Sustained disruption of talks or other events</li>
-          <li>Inappropriate physical contact</li>
-          <li>Unwelcome sexual attention</li>
-          <li>Advocating for, or encouraging, any of the above behavior</li>
+          <li>Promover e incentivar a adoção das regras comportamentais e dos princípios de atuação definidos neste
+            código, nas relações dos membros entre si e com a Scrum.org, palestrantes, voluntários, fornecedores e
+            autoridades públicas;</li>
+          <li>Consolidar a imagem institucional do evento Scrum Day e da Scrum.org, que deve se caracterizar pela
+            excelência, responsabilidade e integridade.</li>
         </ul>
       </div>
     </div>
     <div class="pt-1 pb-4">
-      <h5 class="font-weight-bold">Enforcement</h5>
-      <p>Participants asked to stop any harassing behavior are expected to comply immediately.</p>
+      <h4 class="font-weight-bold">A quem recorrer em caso de dúvida de comportamento?</h4>
       <p>
-        Exhibitors in the expo hall, sponsor or vendor booths, or similar activities are also subject to the anti-harassment policy. In particular, exhibitors
-        should not use sexualized images, activities, or other material. Booth staff (including volunteers) should not use sexualized clothing/uniforms/costumes,
-        or otherwise create a sexualized environment.
+        Qualquer pessoa que pretenda comunicar uma irregularidade, alegadamente cometida por qualquer responsável,
+        colaborador ou parceiro do Scrum Day, deverá fazê-lo através de carta dirigida ao Conselho Fiscal, com a
+        descrição sumária dos fatos. A identidade do divulgador se manterá anônima, se tal for explicitamente
+        solicitado.
       </p>
       <p>
-        If a participant engages in harassing behaviour, event organizers retain the right to take any actions to keep the event a welcoming environment for all
-        participants. This includes warning the offender or expulsion from the conference with no refund.
-      </p>
-      <p>Event organizers may take action to redress anything designed to, or with the clear impact of, disrupting the event or making the environment hostile for any participants.</p>
-      <p>We expect participants to follow these rules at all event venues and event-related social activities. We think people should follow these rules outside event activities too!</p>
-    </div>
-    <div class="pt-1 pb-4">
-      <h5 class="font-weight-bold">Reporting</h5>
-      <p>
-          If someone makes you or anyone else feel unsafe or unwelcome, please report it as soon as possible. Harassment and other code of conduct violations reduce the value of our event
-          for everyone. We want you to be happy at our event. People like you make our event a better place.
-      </p>
-      <p *ngIf="siteConfig?.eventAnonReport">You can make a report either personally or anonymously.</p>
-    </div>
-    <div class="pt-1 pb-4" *ngIf="siteConfig?.eventAnonReport">
-      <h5 class="font-weight-bold">Anonymous Report</h5>
-      <p>You can make an anonymous report here: <a href="{{ siteConfig?.eventAnonReport }}" target="_blank" rel="noopener">{{ siteConfig?.eventAnonReport }}</a></p>
-      <p>We can't follow up an anonymous report with you directly, but we will fully investigate it and take whatever action is necessary to prevent a recurrence.</p>
-    </div>
-    <div class="pt-1 pb-4">
-      <h5 class="font-weight-bold">Personal Report</h5>
-      <p>You can make a personal report by contacting a {{ siteConfig?.eventName }} staff member.</p>
-      <p>
-        When taking a personal report, our staff will ensure you are safe and cannot be overheard. They may involve other event staff to ensure your report is managed properly. Once safe,
-        we'll ask you to tell us about what happened. This can be upsetting, but we'll handle it as respectfully as possible, and you can bring someone to support you. You won't be asked
-        to confront anyone and we won't tell anyone who you are.
+        A queixa será analisada e serão adotadas as medidas que se considerem apropriadas.
       </p>
       <p>
-        Our team will be happy to help you contact venue security, local law enforcement, local support services, provide escorts, or otherwise assist you to feel safe for the duration
-        of the event. We value your attendance.
+        No âmbito deste procedimento, compete ao Conselho Fiscal receber as informações a respeito de irregularidades
+        enviadas pelos acionistas, colaboradores ou terceiros. Após o seu recebimento, o Conselho Fiscal deve registrar
+        a alegada irregularidade, promover a sua investigação junto ao Board de Diretores e, com a devida diligência do
+        Board da Scrum.org e Scrum Day, reportar as suas conclusões ao requerente.
+      </p>
+      <p>
+        Irregularidades que se referem ao próprio Comitê Fiscal deverão ser endereçadas aos Diretor Executivo da
+        Scrum.org para avaliação.
       </p>
     </div>
     <div class="pt-1 pb-4">
-      <h4 class="font-weight-bold">License</h4>
+      <h4 class="font-weight-bold">Condutas pessoais</h4>
       <p>
-        This Code of Conduct was forked from the example policy from the <a href="http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy" target="_blank" rel="noopener">Geek Feminism wiki</a>,
-        created by the Ada Initiative and other volunteers. which is under a Creative Commons Zero license.
+        Como organizador ou participante da Scrum Day, eu me comprometo a seguir a política Anti-Assédio durante
+        qualquer evento ou atividade relacionada à instituição ou à conferência. Em suma, me comprometo a:
       </p>
-      <p>Conference Code of Conduct by {{ siteConfig?.eventName }} is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">Creative Commons Attribution 3.0 Unported License</a>.</p>
+      <div>
+        <ul>
+          <li>
+            Respeitar todos igualmente, independentemente de cor de pele, gênero, aparência, crença, orientação sexual,
+            nacionalidade ou condições financeiras;
+          </li>
+          <li>Não assediar ninguém de forma alguma: verbalmente, sexualmente, fisicamente, moralmente ou qualquer outro
+            tipo de assédio;</li>
+          <li>Não incentivar ou participar de atividades discriminatórias ou que estimulem assédio;</li>
+          <li>Relatar qualquer assédio ou incentivo a assédio que presenciar a organizadores do evento ou membros do
+            Scrum Day, para que as devidas providências sejam tomadas.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pt-1 pb-4">
+      <h4 class="font-weight-bold">Condutas anti-corrupção</h4>
+      <p>
+        Todo membro organizador do Scrum Day está proibido de receber qualquer tipo de pagamento, seja em dinheiro ou
+        qualquer outra forma, em nome de ações que privilegiem o corruptor, seus amigos ou família em qualquer
+        instância. Subornos e recompensas não podem ser prometidos nem recebidos por qualquer membro relacionado ao
+        evento.
+      </p>
+      <p>
+        Seguir as leis vigentes em nosso país é o dever de todos os membros da organização do evento, todos os membros
+        do Scrum Day e participantes do evento.
+      </p>
+      <p>
+        São proibidos quaisquer pagamentos visando facilitar ações do comitê organizador, acelerar processos na
+        organização ou ter acesso a informações privilegiadas. Não comunicar um pagamento proibido também caracteriza
+        quebra no código de conduta do evento.
+      </p>
+    </div>
+    <div class="pt-1 pb-4">
+      <h4 class="font-weight-bold">Confidencialidade de informações</h4>
+      <p>
+        Qualquer membro da organização do evento poderá ter acesso a informações confidenciais devido ao seu papel.
+        Estas informações não poderão ser usadas fora desses âmbitos com o intuito de obter benefício pessoal, seja ele
+        financeiro ou de qualquer outro tipo.
+      </p>
+      <p>
+        Informação confidencial inclui mas não se limita a dados bancários, informações financeiras, contratos firmados
+        com fornecedores e patrocinadores, informações pessoais dos participantes, conhecimento sobre acontecimentos
+        relacionados ao evento, dentre outras.
+      </p>
+      <p>
+        Qualquer uso dessas informações está sujeito ao devido consentimento da fonte da informação, às estratégias
+        legais necessárias e aos procedimentos internos.
+      </p>
+    </div>
+    <div class="pt-1 pb-4">
+      <h4 class="font-weight-bold">Fornecedores e parceiros comerciais</h4>
+      <p>
+        A escolha e contratação de fornecedores deve sempre ser baseada em critérios técnicos, profissionais,
+        econômicos, ambientais, éticos e nas necessidades do grupo, devendo ser conduzidas por meio de processos
+        predeterminados, tais como concorrência ou cotação de preços, que garantam a melhor relação custo-benefício.
+      </p>
+      <p>
+        Além disso, devem ser preferidos aqueles que adotarem as melhores práticas de gestão, de respeito aos seus
+        funcionários, clientes, fornecedores, poder público, comunidade e público em geral, além do integral
+        cumprimento à legislação.
+      </p>
+      <p>Não são permitidos negócios com fornecedores de reputação duvidosa ou situação financeira deficitária.</p>
     </div>
   </section>
   <!--Section: Coc-->
