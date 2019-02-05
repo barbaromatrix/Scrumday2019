@@ -6,7 +6,7 @@
   <section class="section">
     <div class="d-print-none">
       <div class="pull-right" style="margin-top: -45px;">
-        <a href="javascript:window.print();" title="Print Schedule"><i class="fa fa-print" aria-hidden="true"></i> Print Schedule</a>
+        <a href="javascript:window.print();" title="Imprimir agenda"><i class="fa fa-print" aria-hidden="true"></i> Imprima essa agenda</a>
       </div>
       <h1 class="section-heading">Programação</h1>
       <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
@@ -46,6 +46,7 @@
     </div>
     <div *ngIf="(sessions$ | async)?.length === 0" class="text-center">
       <h5>Aguarde! Em breve a programação estará prontinha lhe esperando</h5>
+      <!-- <img src="src/assets/img/programacao.jpg" alt=""> -->
     </div>
   </section>
   <!--Section: Schedule-->
