@@ -55,15 +55,14 @@
   max-height: 450px;
 }
 
-.view-logo {
-  max-height: 450px;
-  transform: translate(40%, -20%);
-}
-
 // TODO: enhance this
 .btn-custom {
-  &-price, &-subscribe {
+  &-price {
     background-color: $defaultColor !important;
+  }
+  &-subscribe {
+    background-color: $defaultColor !important;
+    transform: translateY(25vh)
   }
   &-price-invalid {
     background-color: $invalidColor !important;

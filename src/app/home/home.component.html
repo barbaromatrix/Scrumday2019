@@ -9,8 +9,6 @@
     </video> -->
     <div class="full-bg-img flex-center">
       <div class="container text-center">
-        <img class="view-logo" src="https://firebasestorage.googleapis.com/v0/b/scrumday-demo.appspot.com/o/config%2FScrumDay2019_02.png?alt=media&token=f1664cb6-8104-4440-9912-c9c9e800f775"
-          alt="Logo do evento" />
         <a target="_blank" rel="noopener" [href]="config?.ticketURL" class="btn btn-lg btn-custom-subscribe" rel="nofollow">Faça
           sua inscrição</a>
       </div>
@@ -195,7 +193,7 @@
     <div class="col sponsors" *ngFor="let level of (levels$ | async)">
       <div class="row">
         <ng-container *ngFor="let sponsor of (sponsors$ | async)">
-          <ng-container *ngIf="level.rank === sponsor.level && level.active">
+          <ng-container *ngIf="level.rank === sponsor.level && level.active && sponsor.active">
             <span class="col-md-6" style="padding: 20px 40px; margin: 0 auto;">
               <a [href]="sponsor.websiteLink" target="_blank" rel="noopener">
                 <img [src]="sponsor.logoURL" class="sponsor-img" title="{{ sponsor.name }}" alt="{{ sponsor.name }}" />
