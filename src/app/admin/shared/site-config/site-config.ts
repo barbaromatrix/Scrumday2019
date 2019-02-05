@@ -8,6 +8,7 @@ export class SiteConfig {
   instagramLink: string;
   meetupLink: string;
   githubLink: string;
+  linkedinLink: string;
 
   eventType: string;
   eventName: string;
