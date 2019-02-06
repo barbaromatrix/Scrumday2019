@@ -26,7 +26,7 @@ $lines-to-show: 10;
   line-height: $line-height;
   -webkit-line-clamp: $lines-to-show;
   -webkit-box-orient: vertical;
-  text-align: justify;
+  text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
 }
