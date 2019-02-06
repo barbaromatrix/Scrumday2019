@@ -149,9 +149,12 @@ export const routerConfig: Route[] = [{
     data: { title: 'Sponsors' }
   }]
 }, {
-  path: 'code-of-conduct',
-  component: CocComponent,
-  data: { title: 'Code of Conduct' }
+  path: 'politica',
+  children: [{
+    path: 'codigo-de-conduta',
+    component: CocComponent,
+    data: { title: 'Código de conduta' }
+  }]
 }, {
   path: '',
   redirectTo: 'home',
