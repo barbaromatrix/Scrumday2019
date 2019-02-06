@@ -38,6 +38,7 @@ testem.log
 /typings
 .firebaserc
 firebase.json
+*.cache
 
 # e2e
 /e2e/*.js
