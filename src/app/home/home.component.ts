@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     this.todayDate = new Date().getTime();
     this.speakers$ = this.speakerService.getSpeakerList$(ref => ref.orderByChild('featured').equalTo(true));
     this.siteConfig$ = this.siteConfigService.getConfig$();
-    this.sponsors$ = this.sponsorService.getSponsorList$(ref => ref.orderByChild('level'));
+    this.sponsors$ = this.sponsorService.getSponsorList$(ref => ref.orderByChild('level').equalTo('0'));
     this.levels$ = this.levelService.getLevelList$(ref => ref.orderByChild('rank'));
     this.tickets$ = this.ticketService.getTicketList$(ref => ref.orderByChild('beginDate'));
   }
