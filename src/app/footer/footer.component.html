@@ -5,14 +5,19 @@
   <div class="container-fluid">
     <div class="row justify-content-around">
       <div class="col-lg-2 col-md-3">
-          <h5 class="title font-weight-bold mt-3 mb-4">Siga com a gente</h5>
+        <h5 class="title font-weight-bold mt-3 mb-4">Siga com a gente</h5>
         <div class="social-section mb-5">
           <ul>
-            <li *ngIf="config?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.facebookLink }}" title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
-            <li *ngIf="config?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ config?.twitterLink }}" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
-            <li *ngIf="config?.instagramLink"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.instagramLink }}" title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
-            <li *ngIf="config?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ config?.meetupLink }}" title="Meetup" target="_blank" rel="noopener"><i class="fa fa-meetup"></i></a></li>
-            <li *ngIf="config?.linkedinLink"><a class="btn-social-all" href="https://www.linkedin.com/{{ config?.linkedinLink }}" title="Meetup" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
+            <li *ngIf="config?.facebookLink"><a class="btn-social-all" href="https://www.facebook.com/{{ config?.facebookLink }}"
+                title="Facebook" target="_blank" rel="noopener"><i class="fa fa-facebook"></i></a></li>
+            <li *ngIf="config?.twitterLink"><a class="btn-social-all" href="https://twitter.com/{{ config?.twitterLink }}"
+                title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter"></i></a></li>
+            <li *ngIf="config?.instagramLink"><a class="btn-social-all" href="https://www.instagram.com/{{ config?.instagramLink }}"
+                title="Instagram" target="_blank" rel="noopener"><i class="fa fa-instagram"></i></a></li>
+            <li *ngIf="config?.meetupLink"><a class="btn-social-all" href="https://www.meetup.com/{{ config?.meetupLink }}"
+                title="Meetup" target="_blank" rel="noopener"><i class="fa fa-meetup"></i></a></li>
+            <li *ngIf="config?.linkedinLink"><a class="btn-social-all" href="https://www.linkedin.com/{{ config?.linkedinLink }}"
+                title="Meetup" target="_blank" rel="noopener"><i class="fa fa-linkedin"></i></a></li>
           </ul>
         </div>
         <!--/.Social buttons-->
@@ -21,7 +26,8 @@
       <div class="col-lg-2 col-md-6">
         <h5 class="title font-weight-bold mt-3 mb-4">Entre em contato!</h5>
         <ul>
-          <li class="btn-social-all"><a href="mailto:{{ config?.eventEmail }}" target="_blank" rel="noopener"><i class="fa fa-envelope"></i> {{ config?.eventEmail }}</a></li>
+          <li class="btn-social-all"><a href="mailto:{{ config?.eventEmail }}" target="_blank" rel="noopener"><i class="fa fa-envelope"></i>
+              {{ config?.eventEmail }}</a></li>
         </ul>
       </div>
       <hr class="w-100 clearfix d-sm-none">
@@ -39,8 +45,9 @@
   <!--Copyright-->
   <div class="footer-copyright">
     <div class="container-fluid text-center">
-      &copy; {{ copyright }} Copyright <a [href]="config?.groupWebsite" target="_blank" rel="noopener">{{ config?.groupName }}</a>
-      <br>Baseado no projeto<a href="https://github.com/neojato/DeLorean-v2" target="_blank" rel="noopener">DeLorean</a>
+      Baseado no projeto <a href="https://github.com/neojato/DeLorean-v2" target="_blank" rel="noopener">DeLorean</a>
+      <br>&copy; {{ copyright }} Copyright <a [href]="config?.groupWebsite" target="_blank" rel="noopener">{{
+        config?.groupName }}</a>
     </div>
   </div>
   <!--/.Copyright-->
