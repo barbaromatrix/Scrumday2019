@@ -64,6 +64,7 @@
           <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
         <h4><span [innerHTML]="speaker.name"></span></h4>
+        <h6><strong *ngIf="speaker.company">@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
         <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}"
           target="_blank" rel="noopener">
           <i class="fa fa-twitter" aria-hidden="true"></i>
@@ -72,7 +73,6 @@
           target="_blank" rel="noopener">
           <i class="fa fa-linkedin" aria-hidden="true"></i>
         </a>
-        <h6><strong *ngIf="speaker.company">@&nbsp;<span [innerHTML]="speaker.company"></span></strong></h6>
       </div>
     </div>
   </section>
