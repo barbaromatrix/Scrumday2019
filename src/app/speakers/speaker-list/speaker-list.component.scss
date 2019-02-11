@@ -17,6 +17,14 @@ $lines-to-show: 10;
   }
 }
 
+.section-heading {
+  color: $backgroundColor;
+}
+
+.speaker-company > span, .speaker-name, .speaker-title {
+  color: $backgroundColor;
+}
+
 .speaker-bio {
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
@@ -29,8 +37,14 @@ $lines-to-show: 10;
   text-align: left;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: $backgroundColor;
+}
+
+.modal-body > p {
+  color: $backgroundColor;
 }
 
 .show-modal {
   cursor: pointer;
+  color: $backgroundColor;
 }

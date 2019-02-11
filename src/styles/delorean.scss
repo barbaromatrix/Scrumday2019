@@ -139,6 +139,8 @@ nav.navbar-custom-color {
 }
 
 .navbar.navbar-dark .navbar-nav .nav-item .nav-link {
-  color: #1d1e1f !important;
   font-weight: 500;
+  &:hover {
+    color: $backgroundColor !important;
+  }
 }

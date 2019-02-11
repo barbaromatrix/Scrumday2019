@@ -16,13 +16,13 @@
     </div> -->
     <div class="col sponsors" *ngFor="let level of (levels$ | async)">
       <div *ngIf="level.active">
-        <h3 style="font-weight: bold;">
+        <h3 class="sponsor-level-name">
           {{ level.name }}
           <button class="btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteLevel(level)">
             <i class="fa fa-trash" aria-hidden="true"></i>
           </button>
         </h3>
-        <hr style="width: 60%;" />
+        <hr style="width: 60%;" class="level-divider" />
         <br />
         <div class="row">
           <ng-container *ngFor="let sponsor of (sponsors$ | async)">

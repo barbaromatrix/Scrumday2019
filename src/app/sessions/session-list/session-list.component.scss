@@ -1,5 +1,11 @@
+@import "../../../styles/variables";
+
 .session-link {
   cursor: pointer;
+}
+
+.section-heading {
+  color: $backgroundColor;
 }
 
 /* Firefox table fix */
@@ -9,6 +15,6 @@
 
 @media print {
   .section-title {
-    color: black;
+    color: $backgroundColor;
   }
 }

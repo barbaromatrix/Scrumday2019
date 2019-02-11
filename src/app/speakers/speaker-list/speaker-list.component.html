@@ -20,9 +20,9 @@
         <button type="button" class="btn btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSpeaker(speaker)">
           <i class="fa fa-trash" aria-hidden="true"></i>
         </button>
-        <h4 class="show-modal" (click)="showModal(speaker)" [innerHTML]="speaker.name"></h4>
+        <h4 class="show-modal speaker-name" (click)="showModal(speaker)" [innerHTML]="speaker.name"></h4>
         <h6>
-          <strong *ngIf="speaker.company">@
+          <strong class="speaker-company" *ngIf="speaker.company">@
             <span [innerHTML]="speaker.company"></span>
           </strong>
         </h6>
@@ -55,13 +55,13 @@
         <button type="button" class="close pull-right" aria-label="Close" (click)="speakerModal.hide()">
           <span aria-hidden="true">×</span>
         </button>
-        <h4 class="modal-title w-100" id="modalLabel">
+        <h4 class="modal-title w-100 speaker-name" id="modalLabel">
           <strong>
             <span [innerHTML]="speakerDetail?.name"></span>
           </strong>
           <h6 *ngIf="speakerDetail?.title && speakerDetail?.company">
-            <span *ngIf="speakerDetail?.title" [innerHTML]="speakerDetail?.title"></span>
-            <strong *ngIf="speakerDetail?.company">&nbsp;@
+            <span *ngIf="speakerDetail?.title" class="speaker2-title" [innerHTML]="speakerDetail?.title"></span>
+            <strong class="speaker-company" *ngIf="speakerDetail?.company">&nbsp;@
               <span [innerHTML]="speakerDetail?.company"></span>
             </strong>
           </h6>

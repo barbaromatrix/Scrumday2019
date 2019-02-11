@@ -19,6 +19,7 @@
     font-family: 'Roboto Condensed', 'sans-serif';
     font-weight: 400;
     text-transform: uppercase;
+    color: $backgroundColor;
   }
 
   h2:before, h2:after {
@@ -58,11 +59,20 @@
 // TODO: enhance this
 .btn-custom {
   &-price {
+    font-weight: 500;
     background-color: $defaultColor !important;
+    &:hover {
+      color: $backgroundColor !important;
+    }
   }
   &-subscribe {
     background-color: $defaultColor !important;
-    transform: translateY(25vh)
+    font-weight: 500;
+    transform: translateY(25vh);
+
+    &:hover {
+      color: $backgroundColor !important;
+    }
   }
   &-price-invalid {
     background-color: $invalidColor !important;
