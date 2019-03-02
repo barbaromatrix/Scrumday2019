@@ -9,6 +9,7 @@ import { AuthService } from './../../services/auth/auth.service';
 import { SiteConfig } from './../../admin/shared/site-config/site-config';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sponsor-list',
@@ -33,9 +34,11 @@ export class SponsorListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.sponsors$ = this.sponsorService.getSponsorList$(ref => ref.orderByChild('level'));
+    this.sponsors$ = this.sponsorService.getSponsorList$(ref => ref.orderByChild('level'))
+      .pipe(map(sponsors => sponsors.filter(sponsor => sponsor.level !== "0")))
 
-    this.levels$ = this.levelService.getLevelList$(ref => ref.orderByChild('rank'));
+    this.levels$ = this.levelService.getLevelList$(ref => ref.orderByChild('rank'))
+      .pipe(map(levels => levels.filter(level => level.rank !== "0")))
 
     this.siteConfig$ = this.siteConfigService.getConfig$();
   }
