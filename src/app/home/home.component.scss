@@ -56,7 +56,6 @@
   max-height: 450px;
 }
 
-// TODO: enhance this
 .btn-custom {
   &-price {
     font-weight: 500;
@@ -76,6 +75,14 @@
   }
   &-price-invalid {
     background-color: $invalidColor !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .btn-custom {
+    &-subscribe {
+      margin-top: 20vh;
+    }
   }
 }
 
