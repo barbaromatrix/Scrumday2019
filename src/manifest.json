@@ -1,8 +1,8 @@
 {
-  "name": "DevFest City",
-  "short_name": "DevFest City",
-  "theme_color": "#4285F4",
-  "background_color": "#eeeeee",
+  "name": "Scrum Day 2019",
+  "short_name": "Scrum Day 2019",
+  "theme_color": "#13bf69",
+  "background_color": "#012641",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
