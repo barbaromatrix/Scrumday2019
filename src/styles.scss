@@ -4,7 +4,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
 
 .intro-1 {
-  // background: transparent no-repeat center center;
   background: url("assets/img/scrumday-hero.jpg") no-repeat center center;
   background-size: cover;
 }
@@ -12,5 +11,12 @@
 .divider-new {
   &:after, &:before {
     background-color: #002A47 !important;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .intro-1 {
+    background: url("assets/img/320px.jpg") no-repeat center center;
+    background-size: cover;
   }
 }
