@@ -4,7 +4,7 @@
 <div class="container">
   <!--Section: Speakers-->
   <section class="section team-section pb-3">
-    <h1 class="section-heading">Keynotes e palestrantes</h1>
+    <h1 class="section-heading">Palestrantes</h1>
     <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
       <button type="button" class="btn btn-success" routerLink="/speakers/new">Create Speaker</button>
     </div>
@@ -27,7 +27,8 @@
           </strong>
         </h6>
         <div class="speaker-social-description">
-          <p class="speaker-bio show-modal" (click)="showModal(speaker)">{{ speaker.shortDescription }}</p>
+          <p *ngIf="speaker.shortDescription.length > 0" class="speaker-bio show-modal" (click)="showModal(speaker)">{{ speaker.shortDescription }}</p>
+          <p *ngIf="speaker.shortDescription.length == 0" class="speaker-bio-empty show-modal" (click)="showModal(speaker)">{{ speaker.shortDescription }}</p>
           <a (click)="showModal(speaker)">Veja mais</a>
         </div>
         <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}"

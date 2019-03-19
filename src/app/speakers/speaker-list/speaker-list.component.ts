@@ -24,7 +24,7 @@ export class SpeakerListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.speakers$ = this.speakerService.getSpeakerList$(ref => ref.orderByChild('name'));
+    this.speakers$ = this.speakerService.getSpeakerList$(ref => ref.orderByChild('featured').equalTo(false));
   }
 
   isLoggedIn() {
