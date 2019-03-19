@@ -19,6 +19,7 @@ import { SessionDetailComponent } from './sessions/session-detail/session-detail
 import { UsersComponent } from './admin/users/users.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { KeynotesListComponent } from './keynotes-list/keynotes-list.component'
 import { Route } from '@angular/router';
 import { AuthGuard } from './services/auth/auth.guard';
 
@@ -67,12 +68,12 @@ export const routerConfig: Route[] = [{
   path: 'profile',
   component: ProfileComponent,
   canActivate: [AuthGuard],
-  data: { title: 'My Profile' }
+  data: { title: 'Meu perfil' }
 }, {
   path: 'my-schedule',
   component: MyScheduleComponent,
   canActivate: [AuthGuard],
-  data: { title: 'My Schedule' }
+  data: { title: 'Minha agenda' }
 }, {
   path: 'sessions',
   children: [{
@@ -101,11 +102,18 @@ export const routerConfig: Route[] = [{
     path: '',
     component: SessionListComponent,
     data: {
-      title: 'Schedule',
+      title: 'Agenda',
       preload: true
     }
   }]
 }, {
+  path: 'keynotes',
+  component: KeynotesListComponent,
+  data: {
+    title: 'Keynotes',
+    preload: true
+  }
+},{
   path: 'speakers',
   children: [{
     path: 'new',
@@ -124,7 +132,7 @@ export const routerConfig: Route[] = [{
     path: '',
     component: SpeakerListComponent,
     data: {
-      title: 'Speakers',
+      title: 'Palestrantes',
       preload: true
     }
   }]
@@ -146,7 +154,7 @@ export const routerConfig: Route[] = [{
   }, {
     path: '',
     component: SponsorListComponent,
-    data: { title: 'Sponsors' }
+    data: { title: 'Patrocinadores' }
   }]
 }, {
   path: 'politica',

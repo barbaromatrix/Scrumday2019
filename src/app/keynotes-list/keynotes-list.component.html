@@ -4,22 +4,13 @@
 <div class="container">
   <!--Section: Speakers-->
   <section class="section team-section pb-3">
-    <h1 class="section-heading">Palestrantes</h1>
-    <div class="text-center" *ngIf="isLoggedIn() && isAdmin()">
-      <button type="button" class="btn btn-success" routerLink="/speakers/new">Create Speaker</button>
-    </div>
+    <h1 class="section-heading">Keynotes</h1>
     <div class="row text-center" *ngIf="(speakers$ | async)?.length !== 0 && speakers$ | async as speakers">
       <div *ngFor="let speaker of speakers" class="col-lg-4 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; padding-bottom: 30px; margin: 0 auto;">
         <div class="avatar show-modal" (click)="showModal(speaker)" title="{{ speaker.name }}" alt="{{ speaker.name }}">
           <img *ngIf="!speaker.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
           <img *ngIf="speaker.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + speaker.photoURL + ')'}">
         </div>
-        <button type="button" class="btn btn-sm btn-primary" *ngIf="isLoggedIn() && isAdmin()" routerLink="/speakers/{{ speaker.$key }}/edit">
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-        </button>
-        <button type="button" class="btn btn-sm btn-danger" *ngIf="isLoggedIn() && isAdmin()" (click)="deleteSpeaker(speaker)">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </button>
         <h4 class="show-modal speaker-name" (click)="showModal(speaker)" [innerHTML]="speaker.name"></h4>
         <h6>
           <strong class="speaker-company" *ngIf="speaker.company">@
@@ -27,8 +18,7 @@
           </strong>
         </h6>
         <div class="speaker-social-description">
-          <p *ngIf="speaker.shortDescription.length > 0" class="speaker-bio show-modal" (click)="showModal(speaker)">{{ speaker.shortDescription }}</p>
-          <p *ngIf="speaker.shortDescription.length == 0" class="speaker-bio-empty show-modal" (click)="showModal(speaker)">{{ speaker.shortDescription }}</p>
+          <p class="speaker-bio show-modal" (click)="showModal(speaker)">{{ speaker.shortDescription }}</p>
           <a (click)="showModal(speaker)">Veja mais</a>
         </div>
         <a *ngIf="speaker.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ speaker.twitterLink }}"

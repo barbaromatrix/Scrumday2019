@@ -1,30 +1,28 @@
-import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth/auth.service';
-import { SpeakerService } from './../shared/speaker.service';
-import { Speaker } from './../shared/speaker';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'angular-bootstrap-md';
-import { Observable } from 'rxjs/Rx';
+import { Speaker } from '../speakers/shared/speaker';
+import { SpeakerService } from '../speakers/shared/speaker.service';
+import { AuthService } from '../services/auth/auth.service'
+import { Observable, pipe } from 'rxjs/Rx';
 
 @Component({
-  selector: 'app-speaker-list',
-  templateUrl: './speaker-list.component.html',
-  styleUrls: ['./speaker-list.component.scss']
+  selector: 'app-keynotes-list',
+  templateUrl: './keynotes-list.component.html',
+  styleUrls: ['./keynotes-list.component.scss']
 })
-export class SpeakerListComponent implements OnInit {
+export class KeynotesListComponent implements OnInit {
   @ViewChild('speakerModal') public speakerModal: ModalDirective;
-
   public speakers$: Observable<Speaker[]>;
   public speakerDetail: any;
 
   constructor(
     private speakerService: SpeakerService,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.speakers$ = this.speakerService.getSpeakerList$(ref => ref.orderByChild('featured').equalTo(false));
+    this.speakers$ = this.speakerService
+      .getSpeakerList$(ref => ref.orderByChild('featured').equalTo(true))
   }
 
   isLoggedIn() {

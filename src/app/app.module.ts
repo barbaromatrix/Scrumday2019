@@ -56,6 +56,7 @@ import { SurveysComponent } from './admin/surveys/surveys.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { CocComponent } from './coc/coc.component';
 import { registerLocaleData } from '@angular/common';
+import { KeynotesListComponent } from './keynotes-list/keynotes-list.component';
 
 registerLocaleData(localePtBr);
 
@@ -87,7 +88,8 @@ registerLocaleData(localePtBr);
     SessionSurveyComponent,
     SurveysComponent,
     KeysPipe,
-    CocComponent
+    CocComponent,
+    KeynotesListComponent
   ],
   imports: [
     BrowserModule,
