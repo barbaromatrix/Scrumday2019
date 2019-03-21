@@ -78,6 +78,34 @@
   </section>
   <!--Section: Featured Speakers-->
 
+  <div class="divider-new spaced" *ngIf="(guests$ | async).length > 0">
+      <h2 *ngIf="(guests$ | async).length > 1"class="h2-responsive">Convidados Especiais</h2>
+      <h2 *ngIf="(guests$ | async).length === 1"class="h2-responsive">Convidado Especial</h2>
+  </div>
+
+  <!--Section: Special Guest Speakers-->
+  <section class="section team-section">
+    <div class="row text-center">
+      <div *ngFor="let guest of (guests$ | async)" class="col-lg-3 col-md-6 mb-r" style="padding-left: 40px; padding-right: 40px; margin: 0 auto;">
+        <div class="avatar" title="{{ guest.name }}" alt="{{ guest.name }}">
+          <img *ngIf="!guest.photoURL" class="rounded-circle z-depth-1" style="background-image: url('../../../assets/img/user-default.png')">
+          <img *ngIf="guest.photoURL" class="rounded-circle z-depth-1" [ngStyle]="{'background-image': 'url(' + guest.photoURL + ')'}">
+        </div>
+        <h4><span [innerHTML]="guest.name"></span></h4>
+        <h6><strong *ngIf="guest.company">@&nbsp;<span [innerHTML]="guest.company"></span></strong></h6>
+        <a *ngIf="guest.twitterLink" class="icons-sm tw-ic" href="https://twitter.com/{{ guest.twitterLink }}"
+          target="_blank" rel="noopener">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a *ngIf="guest.linkedinLink" class="icons-sm li-ic" href="https://www.linkedin.com/{{ guest.linkedinLink }}"
+          target="_blank" rel="noopener">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!--Section: Special Guest Speakers-->
+
   <div class="divider-new spaced" id="the-venue" *ngIf="config?.venueName">
     <h2 class="h2-responsive">O Local</h2>
   </div>

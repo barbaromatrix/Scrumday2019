@@ -18,6 +18,7 @@ import { Observable } from 'rxjs/Rx';
 })
 export class HomeComponent implements OnInit {
   speakers$: Observable<Speaker[]>;
+  guests$: Observable<Speaker[]>;
   siteConfig$: Observable<SiteConfig>;
   sponsors$: Observable<Sponsor[]>;
   levels$: Observable<Level[]>;
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.todayDate = new Date().getTime();
     this.speakers$ = this.speakerService.getSpeakerList$(ref => ref.orderByChild('featured').equalTo(true));
+    this.guests$ = this.speakerService.getSpeakerList$(ref => ref.orderByChild('guest').equalTo(true));
     this.siteConfig$ = this.siteConfigService.getConfig$();
     this.sponsors$ = this.sponsorService.getSponsorList$(ref => ref.orderByChild('level').equalTo('0'));
     this.levels$ = this.levelService.getLevelList$(ref => ref.orderByChild('rank'));
