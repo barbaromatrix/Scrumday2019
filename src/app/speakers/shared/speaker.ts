@@ -14,7 +14,8 @@ export class Speaker {
   linkedinLink: string;
   githubLink: string;
   websiteLink: string;
-  featured = false;
+  featured: boolean;
+  guest: boolean = false;
   timeStamp: any = firebase.database.ServerValue.TIMESTAMP;
   active = true;
 }
